@@ -1,0 +1,8 @@
+* text=auto !eol
+/build.xml svneol=native#text/xml
+/license.html svneol=native#text/html
+src/com/ibm/demo/rbbi/english.dict -text
+src/com/ibm/demo/translit/demo.html svneol=native#text/html
+src/com/ibm/test/rbbi/english.dict -text
+src/com/ibm/text/resources/thai_dict -text
+src/data/holidays_jp.ucs -text svneol=native#application/octet-stream
