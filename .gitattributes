@@ -1,0 +1,14 @@
+* text=auto !eol
+data/charBE.brk -text
+data/charLE.brk -text
+data/lineBE.brk -text
+data/lineLE.brk -text
+data/line_thBE.brk -text
+data/line_thLE.brk -text
+data/sentBE.brk -text
+data/sentLE.brk -text
+data/thaidict.brk -text
+data/wordBE.brk -text
+data/wordLE.brk -text
+data/word_thBE.brk -text
+data/word_thLE.brk -text
