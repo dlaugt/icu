@@ -187,6 +187,9 @@ source/data/xml/main/zh.xml svneol=native#text/xml
 source/data/xml/main/zh_Hans.xml svneol=native#text/xml
 source/data/xml/main/zh_Hant.xml svneol=native#text/xml
 source/extra/scrptrun/readme.html svneol=native#text/html
+source/samples/layout/cgnomelayout.c -text
+source/samples/layout/gnomeglue.cpp -text
+source/samples/layout/gnomeglue.h -text
 source/samples/layout/readme.html svneol=native#text/html
 source/samples/ucnv/data02.bin -text svneol=unset#application/octet-stream
 source/test/letest/gendata.xml svneol=native#text/xml
