@@ -2,6 +2,13 @@
 /license.html svneol=native#text/html
 /readme.html svneol=native#text/html
 source/data/build.xml svneol=native#text/xml
+source/data/coll/sr_ME.txt -text
+source/data/coll/zh_Hans.txt -text
+source/data/coll/zh_Hans_CN.txt -text
+source/data/coll/zh_Hans_SG.txt -text
+source/data/coll/zh_Hant_HK.txt -text
+source/data/coll/zh_Hant_MO.txt -text
+source/data/coll/zh_Hant_TW.txt -text
 source/data/icu-config.xml svneol=native#text/xml
 source/data/mappings/ibm-1137_P100_P100-1999.ucm -text
 source/data/mappings/ibm-1168_P100_P100-2002.ucm -text
