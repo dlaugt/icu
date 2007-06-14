@@ -51,7 +51,6 @@ source/data/locales/en_UM.txt -text
 source/data/locales/fr_MC.txt -text
 source/data/locales/fur.txt -text
 source/data/locales/fur_IT.txt -text
-source/data/locales/gaa.txt -text
 source/data/locales/gaa_GH.txt -text
 source/data/locales/gez.txt -text
 source/data/locales/gez_ER.txt -text
@@ -271,7 +270,6 @@ source/data/xml/main/bo.xml -text
 source/data/xml/main/bs.xml svneol=native#text/xml
 source/data/xml/main/byn.xml svneol=native#text/xml
 source/data/xml/main/ca.xml svneol=native#text/xml
-source/data/xml/main/cch.xml -text
 source/data/xml/main/cs.xml svneol=native#text/xml
 source/data/xml/main/cy.xml svneol=native#text/xml
 source/data/xml/main/da.xml svneol=native#text/xml
@@ -291,14 +289,10 @@ source/data/xml/main/fi.xml svneol=native#text/xml
 source/data/xml/main/fo.xml svneol=native#text/xml
 source/data/xml/main/fr.xml svneol=native#text/xml
 source/data/xml/main/ga.xml svneol=native#text/xml
-source/data/xml/main/gaa.xml -text
 source/data/xml/main/gez.xml svneol=native#text/xml
 source/data/xml/main/gl.xml svneol=native#text/xml
 source/data/xml/main/gu.xml svneol=native#text/xml
 source/data/xml/main/gv.xml svneol=native#text/xml
-source/data/xml/main/ha.xml -text
-source/data/xml/main/ha_Arab.xml -text
-source/data/xml/main/ha_Latn.xml -text
 source/data/xml/main/haw.xml svneol=native#text/xml
 source/data/xml/main/he.xml svneol=native#text/xml
 source/data/xml/main/hi.xml svneol=native#text/xml
@@ -326,9 +320,6 @@ source/data/xml/main/kn.xml svneol=native#text/xml
 source/data/xml/main/ko.xml svneol=native#text/xml
 source/data/xml/main/kok.xml svneol=native#text/xml
 source/data/xml/main/kpe.xml -text
-source/data/xml/main/ku.xml -text
-source/data/xml/main/ku_Arab.xml -text
-source/data/xml/main/ku_Latn.xml -text
 source/data/xml/main/kw.xml svneol=native#text/xml
 source/data/xml/main/ky.xml svneol=native#text/xml
 source/data/xml/main/lo.xml svneol=native#text/xml
