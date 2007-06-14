@@ -2,6 +2,9 @@
 /license.html svneol=native#text/html
 /readme.html svneol=native#text/html
 source/data/build.xml svneol=native#text/xml
+source/data/coll/dz.txt -text
+source/data/coll/km.txt -text
+source/data/coll/sa.txt -text
 source/data/coll/sr_ME.txt -text
 source/data/coll/zh_Hans.txt -text
 source/data/coll/zh_Hans_CN.txt -text
