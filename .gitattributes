@@ -204,6 +204,7 @@ source/test/intltest/fldset.cpp -text
 source/test/intltest/fldset.h -text
 source/test/letest/gendata.xml svneol=native#text/xml
 source/test/letest/readme.html svneol=native#text/html
+source/test/perf/Makefile.in -text
 source/test/perf/collationperf/CollPerf.pl -text
 source/test/perf/collationperf/Makefile.in -text
 source/test/perf/collationperf/collperf.cpp -text
