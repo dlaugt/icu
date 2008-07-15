@@ -232,6 +232,9 @@ source/extra/scrptrun/readme.html svneol=native#text/html
 source/i18n/dtitv_impl.h -text
 source/i18n/dtitvfmt.cpp -text
 source/i18n/dtitvinf.cpp -text
+source/i18n/tmunit.cpp -text
+source/i18n/tmutamt.cpp -text
+source/i18n/tmutfmt.cpp -text
 source/i18n/unicode/dtitvfmt.h -text
 source/i18n/unicode/dtitvinf.h -text
 source/i18n/unicode/tmunit.h -text
@@ -243,6 +246,8 @@ source/samples/ucnv/data02.bin -text svneol=unset#application/octet-stream
 source/test/compat/tzone.pl -text
 source/test/intltest/dtifmtts.cpp -text
 source/test/intltest/dtifmtts.h -text
+source/test/intltest/tufmtts.cpp -text
+source/test/intltest/tufmtts.h -text
 source/test/letest/gendata.xml svneol=native#text/xml
 source/test/letest/readme.html svneol=native#text/html
 source/test/perf/Makefile.in -text
