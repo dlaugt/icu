@@ -250,6 +250,8 @@ source/test/perf/strsrchperf/StrSrchPerf_r.pl -text
 source/test/perf/strsrchperf/strsrchperf.cpp -text
 source/test/perf/strsrchperf/strsrchperf.h -text
 source/test/perf/strsrchperf/strsrchperf.vcproj -text
+source/test/testdata/ConverterSelectorTestUTF16.txt -text svneol=unset#text/plain
+source/test/testdata/ConverterSelectorTestUTF8.txt svneol=native#text/plain
 source/test/testdata/LineBreakTest.txt svneol=native#text/plain
 source/test/testdata/TestFont1.otf -text
 source/test/testdata/conversion.txt svneol=native#text/plain
