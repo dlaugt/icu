@@ -5,7 +5,6 @@
 source/common/dtintrv.cpp -text
 source/common/mutex.cpp -text
 source/common/unicode/dtintrv.h -text
-source/configure -text
 source/data/build.xml svneol=native#text/xml
 source/data/coll/bn_IN.txt -text
 source/data/coll/pa_Arab.txt -text
