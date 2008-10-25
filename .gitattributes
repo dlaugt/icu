@@ -294,6 +294,7 @@ trunk/src/com/ibm/icu/impl/duration/impl/data/pfd_zh_Hant.xml -text
 trunk/src/com/ibm/icu/impl/duration/impl/data/pfd_zh_Hant_HK.xml -text
 trunk/src/com/ibm/icu/lang/package.html svneol=native#text/html
 trunk/src/com/ibm/icu/math/package.html svneol=native#text/html
+trunk/src/com/ibm/icu/text/CurrencyPluralInfo.java -text
 trunk/src/com/ibm/icu/text/package.html svneol=native#text/html
 trunk/src/com/ibm/icu/util/package.html svneol=native#text/html
 trunk/src/com/ibm/richtext/awtui/package.html svneol=native#text/html
