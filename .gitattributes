@@ -38,6 +38,7 @@ source/data/locales/zh_Hans_MO.txt -text
 source/data/misc/likelySubtags.txt -text
 source/data/misc/metazoneInfo.txt svneol=native#text/plain
 source/data/misc/plurals.txt -text
+source/data/pkgdataMakefile.in -text
 source/data/xml/brkitr/en.xml svneol=native#text/xml
 source/data/xml/brkitr/en_US.xml svneol=native#text/xml
 source/data/xml/brkitr/en_US_POSIX.xml svneol=native#text/xml
@@ -230,6 +231,7 @@ source/data/xml/main/zh_Hans.xml svneol=native#text/xml
 source/data/xml/main/zh_Hant.xml svneol=native#text/xml
 source/data/xml/main/zu.xml -text
 source/extra/scrptrun/readme.html svneol=native#text/html
+source/extra/uconv/pkgdataMakefile.in -text
 source/i18n/dtitv_impl.h -text
 source/i18n/dtitvfmt.cpp -text
 source/i18n/dtitvinf.cpp -text
@@ -271,4 +273,12 @@ source/test/testdata/icu26_testtypes.res -text
 source/test/testdata/icu26e_testtypes.res -text
 source/test/testdata/importtest.bin -text
 source/test/testdata/letest.xml svneol=native#text/xml
+source/test/testdata/pkgdataMakefile.in -text
 source/test/testdata/uni-text.bin -text
+source/tools/pkgdata/pkgdata.cpp -text
+source/tools/toolutil/pkg_genc.c -text
+source/tools/toolutil/pkg_genc.h -text
+source/tools/toolutil/pkg_gencmn.c -text
+source/tools/toolutil/pkg_gencmn.h -text
+source/tools/toolutil/pkg_icu.cpp -text
+source/tools/toolutil/pkg_icu.h -text
