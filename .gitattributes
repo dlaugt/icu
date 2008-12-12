@@ -276,7 +276,6 @@ src/com/ibm/icu/dev/tool/tzu/runicutzuenv.cmd -text
 src/com/ibm/icu/dev/tool/tzu/runicutzuenv.sh -text
 src/com/ibm/icu/impl/PVecToTrieCompactHandler.java -text
 src/com/ibm/icu/impl/PVecToTrieCompactor.java -text
-src/com/ibm/icu/impl/TrieCompactor.java -text
 src/com/ibm/icu/impl/data/icudata.jar -text svneol=unset#application/java-archive
 src/com/ibm/icu/impl/data/package.html svneol=native#text/html
 src/com/ibm/icu/impl/duration/impl/data/index.txt -text
