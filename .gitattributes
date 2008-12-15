@@ -89,6 +89,7 @@ src/com/ibm/icu/dev/eclipse/plugins/com.ibm.icu/META-INF/MANIFEST.MF -text
 src/com/ibm/icu/dev/eclipse/plugins/com.ibm.icu/build.properties -text
 src/com/ibm/icu/dev/eclipse/plugins/com.ibm.icu/plugin.properties -text
 src/com/ibm/icu/dev/test/calendar/package.html svneol=native#text/html
+src/com/ibm/icu/dev/test/charset/TestSelection.java -text
 src/com/ibm/icu/dev/test/charsetdet/CharsetDetectionTests.xml svneol=native#text/xml
 src/com/ibm/icu/dev/test/collator/CollationCreationMethodTest.java -text
 src/com/ibm/icu/dev/test/compression/package.html svneol=native#text/html
