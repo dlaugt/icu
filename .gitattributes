@@ -1,0 +1,18 @@
+* text=auto !eol
+/.classpath -text
+.externalToolBuilders/localespi_jar.launch -text
+/.project -text
+.settings/org.eclipse.core.resources.prefs -text
+.settings/org.eclipse.jdt.core.prefs -text
+.settings/org.eclipse.jdt.ui.prefs -text
+/readme.html svneol=native#text/html
+src/META-INF/services/java.text.spi.BreakIteratorProvider -text
+src/META-INF/services/java.text.spi.CollatorProvider -text
+src/META-INF/services/java.text.spi.DateFormatProvider -text
+src/META-INF/services/java.text.spi.DateFormatSymbolsProvider -text
+src/META-INF/services/java.text.spi.DecimalFormatSymbolsProvider -text
+src/META-INF/services/java.text.spi.NumberFormatProvider -text
+src/META-INF/services/java.util.spi.CurrencyNameProvider -text
+src/META-INF/services/java.util.spi.LocaleNameProvider -text
+src/META-INF/services/java.util.spi.TimeZoneNameProvider -text
+src/com/ibm/icu/impl/javaspi/ICULocaleServiceProviderConfig.properties -text
