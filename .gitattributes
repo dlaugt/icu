@@ -7,7 +7,6 @@
 /eclipseFragment.txt -text
 eclipseProjectMisc/initSrc.launch -text
 eclipseProjectMisc/normSrc.launch -text
-/ee.foundation.jar -text svneol=unset#application/java-archive
 /license.html svneol=native#text/html
 localespi/.classpath -text
 localespi/.externalToolBuilders/localespi_jar.launch -text
@@ -243,4 +242,3 @@ src/com/ibm/richtext/textapps/resources/unicode.hebrew.red -text
 src/com/ibm/richtext/textformat/package.html svneol=native#text/html
 src/com/ibm/richtext/textlayout/attributes/package.html svneol=native#text/html
 src/com/ibm/richtext/textpanel/package.html svneol=native#text/html
-*.{zip,jar,exe,dll} filter=lfs diff=lfs merge=lfs -text
