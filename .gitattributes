@@ -401,6 +401,8 @@ source/extra/scrptrun/readme.html svneol=native#text/html
 source/extra/uconv/pkgdataMakefile.in -text
 source/extra/uconv/samples/ibm-37-test.txt -text svneol=unset#application/octet-stream
 source/i18n/currpinf.cpp -text
+source/i18n/decfmtst.cpp -text
+source/i18n/decfmtst.h -text
 source/i18n/dtitv_impl.h -text
 source/i18n/dtitvfmt.cpp -text
 source/i18n/dtitvinf.cpp -text
