@@ -1,0 +1,18 @@
+* text=auto !eol
+/manifest.stub -text
+src/com/ibm/icu/dev/demo/calendar/package.html svneol=native#text/html
+src/com/ibm/icu/dev/demo/holiday/package.html svneol=native#text/html
+src/com/ibm/icu/dev/demo/impl/package.html svneol=native#text/html
+src/com/ibm/icu/dev/demo/rbnf/package.html svneol=native#text/html
+src/com/ibm/icu/dev/demo/translit/Test_Arabic-Latin.txt svneol=native#text/plain
+src/com/ibm/icu/dev/demo/translit/Test_Greek-Latin.txt svneol=native#text/plain
+src/com/ibm/icu/dev/demo/translit/Test_Han-Latin.txt svneol=native#text/plain
+src/com/ibm/icu/dev/demo/translit/Test_Hebrew-Latin.txt svneol=native#text/plain
+src/com/ibm/icu/dev/demo/translit/Test_Instructions.html svneol=native#text/html
+src/com/ibm/icu/dev/demo/translit/Test_Thai-Latin.txt svneol=native#text/plain
+src/com/ibm/icu/dev/demo/translit/demo.html svneol=native#text/html
+src/com/ibm/icu/dev/demo/translit/package.html svneol=native#text/html
+src/com/ibm/icu/dev/demo/translit/resources/Transliterator_Han_Pinyin.txt svneol=native#text/plain
+src/com/ibm/icu/dev/demo/translit/resources/Transliterator_Kanji_English.txt svneol=native#text/plain
+src/com/ibm/icu/dev/demo/translit/resources/Transliterator_Kanji_OnRomaji.txt svneol=native#text/plain
+src/com/ibm/icu/dev/demo/translit/thai_test.txt svneol=native#text/plain
