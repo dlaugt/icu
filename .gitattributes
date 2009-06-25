@@ -1,4 +1,5 @@
 * text=auto !eol
+/LDML2ICUConverter.java.patch -text
 common/rbbirpt.txt svneol=native#text/plain
 data/brkitr/char.txt svneol=native#text/plain
 data/brkitr/char_th.txt svneol=native#text/plain
