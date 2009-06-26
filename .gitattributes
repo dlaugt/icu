@@ -27,6 +27,7 @@ main/classes/charset/.project -text
 main/classes/charset/.settings/org.eclipse.jdt.core.prefs -text
 main/classes/charset/manifest.stub -text
 main/classes/charset/src/com/ibm/icu/charset/package.html svneol=native#text/html
+main/classes/collate/collate-build.launch -text
 main/classes/core/.classpath -text
 main/classes/core/.project -text
 main/classes/core/.settings/org.eclipse.jdt.core.prefs -text
