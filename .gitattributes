@@ -57,6 +57,7 @@ main/classes/localespi/src/META-INF/services/java.util.spi.CurrencyNameProvider 
 main/classes/localespi/src/META-INF/services/java.util.spi.LocaleNameProvider -text
 main/classes/localespi/src/META-INF/services/java.util.spi.TimeZoneNameProvider -text
 main/classes/localespi/src/com/ibm/icu/impl/javaspi/ICULocaleServiceProviderConfig.properties -text
+main/classes/translit/translit-build.launch -text
 main/shared/.project -text
 main/shared/data/Transliterator_Han_Latin_Definition.txt svneol=native#text/plain
 main/shared/data/Transliterator_Han_Latin_EDICT.txt svneol=native#text/plain
@@ -248,8 +249,6 @@ main/tests/core/src/com/ibm/icu/dev/test/serializable/data/ICU_4.0/com.ibm.icu.u
 main/tests/core/src/com/ibm/icu/dev/test/serializable/data/ICU_4.0/com.ibm.icu.util.ULocale.dat -text
 main/tests/core/src/com/ibm/icu/dev/test/serializable/data/ICU_4.0/com.ibm.icu.util.UResourceTypeMismatchException.dat -text
 main/tests/core/src/com/ibm/icu/dev/test/serializable/data/ICU_4.0/com.ibm.icu.util.VTimeZone.dat -text
-main/tests/core/src/com/ibm/icu/dev/test/translit/langtagRegex.txt svneol=native#text/plain
-main/tests/core/src/com/ibm/icu/dev/test/translit/package.html svneol=native#text/html
 main/tests/framework/.classpath -text
 main/tests/framework/.project -text
 main/tests/framework/.settings/org.eclipse.jdt.core.prefs -text
@@ -258,6 +257,9 @@ main/tests/framework/src/com/ibm/icu/dev/test/package.html svneol=native#text/ht
 main/tests/localespi/.classpath -text
 main/tests/localespi/.project -text
 main/tests/localespi/manifest.stub -text
+main/tests/translit/src/com/ibm/icu/dev/test/translit/langtagRegex.txt svneol=native#text/plain
+main/tests/translit/src/com/ibm/icu/dev/test/translit/package.html svneol=native#text/html
+main/tests/translit/translit-tests-build.launch -text
 perf-tests/data/collation/TestNames_Asian.txt svneol=native#text/plain
 perf-tests/data/collation/TestNames_Chinese.txt svneol=native#text/plain
 perf-tests/data/collation/TestNames_Japanese.txt svneol=native#text/plain
