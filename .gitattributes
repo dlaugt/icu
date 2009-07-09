@@ -235,3 +235,24 @@ main/tests/framework/src/com/ibm/icu/dev/test/package.html svneol=native#text/ht
 main/tests/localespi/.classpath -text
 main/tests/localespi/.project -text
 main/tests/localespi/manifest.stub -text
+tools/build/README.txt svneol=native#text/plain
+tools/build/icu4j28.api.gz -text svneol=unset#application/gzip
+tools/build/icu4j30.api.gz -text svneol=unset#application/gzip
+tools/build/icu4j32.api.gz -text svneol=unset#application/gzip
+tools/build/icu4j34.api.gz -text svneol=unset#application/gzip
+tools/build/icu4j341.api.gz -text svneol=unset#application/gzip
+tools/build/icu4j342.api.gz -text svneol=unset#application/gzip
+tools/build/icu4j343.api.gz -text svneol=unset#application/gzip
+tools/build/icu4j36.api.gz -text
+tools/build/icu4j38.api.gz -text
+tools/build/icu4j381.api.gz -text
+tools/build/icu4j400.api.gz -text
+tools/build/icu4j401.api.gz -text
+tools/build/icu4j42.api.gz -text
+tools/build/icu4j421.api.gz -text
+tools/build/manifest.stub -text
+tools/misc/manifest.stub -text
+tools/misc/src/com/ibm/icu/dev/tool/compression/package.html svneol=native#text/html
+tools/misc/src/com/ibm/icu/dev/tool/rbbi/readme.html svneol=native#text/html
+tools/misc/src/com/ibm/icu/dev/tool/translit/indicExceptions.txt svneol=native#text/plain
+tools/misc/src/com/ibm/icu/dev/tool/translit/rbtTemplate.txt svneol=native#text/plain
