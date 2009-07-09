@@ -1,5 +1,6 @@
 * text=auto !eol
 /build.properties -text
+/build.xml svneol=native#text/xml
 main/classes/charset/.classpath -text
 main/classes/charset/.project -text
 main/classes/charset/.settings/org.eclipse.jdt.core.prefs -text
