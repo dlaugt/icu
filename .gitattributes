@@ -266,6 +266,7 @@ main/tests/translit/.settings/org.eclipse.jdt.ui.prefs -text
 main/tests/translit/src/com/ibm/icu/dev/test/translit/langtagRegex.txt svneol=native#text/plain
 main/tests/translit/src/com/ibm/icu/dev/test/translit/package.html svneol=native#text/html
 main/tests/translit/translit-tests-build.launch -text
+main/tests/translit/translit-tests.launch -text svneol=unset#text/plain
 perf-tests/data/collation/TestNames_Asian.txt svneol=native#text/plain
 perf-tests/data/collation/TestNames_Chinese.txt svneol=native#text/plain
 perf-tests/data/collation/TestNames_Japanese.txt svneol=native#text/plain
