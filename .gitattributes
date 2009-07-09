@@ -260,6 +260,9 @@ main/tests/framework/src/com/ibm/icu/dev/test/package.html svneol=native#text/ht
 main/tests/localespi/.classpath -text
 main/tests/localespi/.project -text
 main/tests/localespi/manifest.stub -text
+main/tests/translit/.externalToolBuilders/copy-translit-test-data.launch -text
+main/tests/translit/.settings/org.eclipse.jdt.core.prefs -text
+main/tests/translit/.settings/org.eclipse.jdt.ui.prefs -text
 main/tests/translit/src/com/ibm/icu/dev/test/translit/langtagRegex.txt svneol=native#text/plain
 main/tests/translit/src/com/ibm/icu/dev/test/translit/package.html svneol=native#text/html
 main/tests/translit/translit-tests-build.launch -text
