@@ -22,6 +22,8 @@ demos/src/com/ibm/icu/dev/demo/translit/thai_test.txt svneol=native#text/plain
 icu-eclipse/misc/ICUConfig.properties -text
 icu-eclipse/misc/about_icu.html svneol=native#text/html
 icu-eclipse/misc/about_icu_base.html svneol=native#text/html
+main/.classpath -text svneol=unset#text/plain
+main/.project -text svneol=unset#text/plain
 main/classes/charset/.classpath -text
 main/classes/charset/.project -text
 main/classes/charset/.settings/org.eclipse.jdt.core.prefs -text
