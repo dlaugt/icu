@@ -1127,8 +1127,6 @@ source/test/letest/gendata.xml svneol=native#text/xml
 source/test/letest/readme.html svneol=native#text/html
 source/test/perf/README -text
 source/test/perf/collationperf/readme.html svneol=native#text/html
-source/test/testdata/CollationTest_NON_IGNORABLE_STUB.txt svneol=native#text/plain
-source/test/testdata/CollationTest_SHIFTED_STUB.txt svneol=native#text/plain
 source/test/testdata/ConverterSelectorTestUTF8.txt svneol=native#text/plain
 source/test/testdata/DataDrivenCollationTest.txt svneol=native#text/plain
 source/test/testdata/GraphemeBreakTest.txt svneol=native#text/plain
