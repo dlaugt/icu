@@ -1115,6 +1115,8 @@ extra/uconv/samples/utf8/simplechinese.txt svneol=native#text/plain
 extra/uconv/samples/utf8/turkish.txt svneol=native#text/plain
 extra/uconv/samples/utf8/utf-8-demo.txt svneol=native#text/plain
 i18n/regexcst.txt svneol=native#text/plain
+i18n/selfmt.cpp -text
+i18n/selfmtimpl.h -text
 i18n/unicode/selfmt.h -text
 samples/break/readme.txt svneol=native#text/plain
 samples/cal/readme.txt svneol=native#text/plain
