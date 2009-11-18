@@ -23,6 +23,7 @@ classes/core/src/com/ibm/icu/math/package.html svneol=native#text/html
 classes/core/src/com/ibm/icu/text/BaseFormat.java svneol=native#text/plain
 classes/core/src/com/ibm/icu/text/Formatter.java svneol=native#text/plain
 classes/core/src/com/ibm/icu/text/Parser.java svneol=native#text/plain
+classes/core/src/com/ibm/icu/text/SelectFormat.java -text
 classes/core/src/com/ibm/icu/text/Transform.java svneol=native#text/plain
 classes/core/src/com/ibm/icu/text/package.html svneol=native#text/html
 classes/core/src/com/ibm/icu/util/LocaleMatcher.java svneol=native#text/plain
