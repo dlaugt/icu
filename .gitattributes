@@ -1150,6 +1150,8 @@ test/compat/readme.txt svneol=native#text/plain
 test/hdrtst/cxxfiles.txt svneol=native#text/plain
 test/hdrtst/dfiles.txt svneol=native#text/plain
 test/hdrtst/pfiles.txt svneol=native#text/plain
+test/intltest/selfmts.cpp -text
+test/intltest/selfmts.h -text
 test/letest/gendata.xml svneol=native#text/xml
 test/letest/readme.html svneol=native#text/html
 test/perf/README -text
