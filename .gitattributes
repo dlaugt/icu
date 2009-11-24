@@ -36,9 +36,11 @@ main/classes/core/.classpath -text
 main/classes/core/.project -text
 main/classes/core/.settings/org.eclipse.jdt.core.prefs -text
 main/classes/core/manifest.stub -text
+main/classes/core/src/com/ibm/icu/impl/BMPSet.java -text
 main/classes/core/src/com/ibm/icu/impl/IterableComparator.java svneol=native#text/plain
 main/classes/core/src/com/ibm/icu/impl/MultiComparator.java svneol=native#text/plain
 main/classes/core/src/com/ibm/icu/impl/Row.java svneol=native#text/plain
+main/classes/core/src/com/ibm/icu/impl/UnicodeSetStringSpan.java -text
 main/classes/core/src/com/ibm/icu/impl/data/package.html svneol=native#text/html
 main/classes/core/src/com/ibm/icu/impl/duration/impl/data/index.txt svneol=native#text/plain
 main/classes/core/src/com/ibm/icu/lang/package.html svneol=native#text/html
@@ -47,7 +49,6 @@ main/classes/core/src/com/ibm/icu/text/BaseFormat.java svneol=native#text/plain
 main/classes/core/src/com/ibm/icu/text/Formatter.java svneol=native#text/plain
 main/classes/core/src/com/ibm/icu/text/Parser.java svneol=native#text/plain
 main/classes/core/src/com/ibm/icu/text/Transform.java svneol=native#text/plain
-main/classes/core/src/com/ibm/icu/text/UnicodeSetStringSpan.java -text
 main/classes/core/src/com/ibm/icu/text/package.html svneol=native#text/html
 main/classes/core/src/com/ibm/icu/util/LocaleMatcher.java svneol=native#text/plain
 main/classes/core/src/com/ibm/icu/util/LocalePriorityList.java svneol=native#text/plain
