@@ -52,6 +52,10 @@ main/classes/core/src/com/ibm/icu/text/package.html svneol=native#text/html
 main/classes/core/src/com/ibm/icu/util/LocaleMatcher.java svneol=native#text/plain
 main/classes/core/src/com/ibm/icu/util/LocalePriorityList.java svneol=native#text/plain
 main/classes/core/src/com/ibm/icu/util/package.html svneol=native#text/html
+main/classes/langdata/.externalToolBuilders/copy-data-langdata.launch -text
+main/classes/langdata/.settings/org.eclipse.jdt.core.prefs -text
+main/classes/langdata/.settings/org.eclipse.jdt.ui.prefs -text
+main/classes/langdata/langdata-build.launch -text
 main/classes/localespi/.classpath -text
 main/classes/localespi/.project -text
 main/classes/localespi/.settings/org.eclipse.jdt.core.prefs -text
@@ -67,6 +71,10 @@ main/classes/localespi/src/META-INF/services/java.util.spi.CurrencyNameProvider 
 main/classes/localespi/src/META-INF/services/java.util.spi.LocaleNameProvider -text
 main/classes/localespi/src/META-INF/services/java.util.spi.TimeZoneNameProvider -text
 main/classes/localespi/src/com/ibm/icu/impl/javaspi/ICULocaleServiceProviderConfig.properties -text
+main/classes/regiondata/.externalToolBuilders/copy-data-regiondata.launch -text
+main/classes/regiondata/.settings/org.eclipse.jdt.core.prefs -text
+main/classes/regiondata/.settings/org.eclipse.jdt.ui.prefs -text
+main/classes/regiondata/regiondata-build.launch -text
 main/classes/translit/.externalToolBuilders/copy-data-translit.launch -text
 main/classes/translit/.settings/org.eclipse.jdt.core.prefs -text
 main/classes/translit/.settings/org.eclipse.jdt.ui.prefs -text
