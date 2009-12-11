@@ -52,6 +52,10 @@ main/classes/core/src/com/ibm/icu/text/package.html svneol=native#text/html
 main/classes/core/src/com/ibm/icu/util/LocaleMatcher.java svneol=native#text/plain
 main/classes/core/src/com/ibm/icu/util/LocalePriorityList.java svneol=native#text/plain
 main/classes/core/src/com/ibm/icu/util/package.html svneol=native#text/html
+main/classes/currdata/.externalToolBuilders/copy-data-langdata.launch -text
+main/classes/currdata/.settings/org.eclipse.jdt.core.prefs -text
+main/classes/currdata/.settings/org.eclipse.jdt.ui.prefs -text
+main/classes/currdata/currdata-build.launch -text
 main/classes/langdata/.externalToolBuilders/copy-data-langdata.launch -text
 main/classes/langdata/.settings/org.eclipse.jdt.core.prefs -text
 main/classes/langdata/.settings/org.eclipse.jdt.ui.prefs -text
