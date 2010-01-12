@@ -101,6 +101,7 @@ tests/core/src/com/ibm/icu/dev/test/duration/testdata/testdata_zh_Hans_SG.txt sv
 tests/core/src/com/ibm/icu/dev/test/duration/testdata/testdata_zh_Hant.txt svneol=native#text/plain
 tests/core/src/com/ibm/icu/dev/test/duration/testdata/testdata_zh_Hant_HK.txt svneol=native#text/plain
 tests/core/src/com/ibm/icu/dev/test/format/NumberFormatTestCases.txt svneol=native#text/plain
+tests/core/src/com/ibm/icu/dev/test/format/SelectFormatAPITest.java -text
 tests/core/src/com/ibm/icu/dev/test/format/SelectFormatTest.java -text
 tests/core/src/com/ibm/icu/dev/test/format/SelectFormatUnitTest.java -text
 tests/core/src/com/ibm/icu/dev/test/format/TimeZoneAliases.txt svneol=native#text/plain
