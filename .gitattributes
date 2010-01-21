@@ -1464,6 +1464,9 @@ data/unidata/WordBreakProperty.txt svneol=native#text/plain
 data/unidata/changes.txt svneol=native#text/plain
 data/unidata/confusables.txt svneol=native#text/plain
 data/unidata/confusablesWholeScript.txt svneol=native#text/plain
+data/unidata/norm2/nfc.txt svneol=native#text/plain
+data/unidata/norm2/nfkc.txt svneol=native#text/plain
+data/unidata/norm2/nfkc_cf.txt svneol=native#text/plain
 data/unidata/ucdterms.txt svneol=native#text/plain
 data/xml/brkitr/el.xml svneol=native#text/xml
 data/xml/brkitr/en.xml svneol=native#text/xml
@@ -1848,9 +1851,6 @@ extra/uconv/samples/utf8/simplechinese.txt svneol=native#text/plain
 extra/uconv/samples/utf8/turkish.txt svneol=native#text/plain
 extra/uconv/samples/utf8/utf-8-demo.txt svneol=native#text/plain
 i18n/regexcst.txt svneol=native#text/plain
-i18n/selfmt.cpp -text
-i18n/selfmtimpl.h -text
-i18n/unicode/selfmt.h -text
 samples/break/readme.txt svneol=native#text/plain
 samples/cal/readme.txt svneol=native#text/plain
 samples/case/readme.txt svneol=native#text/plain
@@ -1883,8 +1883,6 @@ test/compat/readme.txt svneol=native#text/plain
 test/hdrtst/cxxfiles.txt svneol=native#text/plain
 test/hdrtst/dfiles.txt svneol=native#text/plain
 test/hdrtst/pfiles.txt svneol=native#text/plain
-test/intltest/selfmts.cpp -text
-test/intltest/selfmts.h -text
 test/letest/gendata.xml svneol=native#text/xml
 test/letest/readme.html svneol=native#text/html
 test/perf/README -text
@@ -1909,8 +1907,6 @@ test/testdata/conversion.txt svneol=native#text/plain
 test/testdata/csdetest.xml svneol=native#text/xml
 test/testdata/default.txt svneol=native#text/plain
 test/testdata/format.txt svneol=native#text/plain
-test/testdata/icu26_testtypes.res -text
-test/testdata/icu26e_testtypes.res -text
 test/testdata/icuio.txt svneol=native#text/plain
 test/testdata/idna_conf.txt svneol=native#text/plain
 test/testdata/idna_rules.txt svneol=native#text/plain
@@ -1923,6 +1919,8 @@ test/testdata/nfs4_cs_prep_ci.txt svneol=native#text/plain
 test/testdata/nfs4_cs_prep_cs.txt svneol=native#text/plain
 test/testdata/nfs4_mixed_prep_p.txt svneol=native#text/plain
 test/testdata/nfs4_mixed_prep_s.txt svneol=native#text/plain
+test/testdata/old_e_testtypes.res -text
+test/testdata/old_l_testtypes.res -text
 test/testdata/ra.txt svneol=native#text/plain
 test/testdata/rbbitst.txt svneol=native#text/plain
 test/testdata/re_tests.txt svneol=native#text/plain
@@ -1945,7 +1943,5 @@ test/thaitest/space.txt svneol=native#text/plain
 tools/gendraft/exclude.txt svneol=native#text/plain
 tools/genpname/SyntheticPropertyAliases.txt svneol=native#text/plain
 tools/genpname/SyntheticPropertyValueAliases.txt svneol=native#text/plain
-tools/icuinfo/icuinfo.vcproj -text
-tools/icuinfo/icuplugins_windows_sample.txt -text
-tools/icuinfo/testplug.vcproj -text
+tools/icuinfo/icuplugins_windows_sample.txt svneol=native#text/plain
 tools/tzcode/readme.txt svneol=native#text/plain
