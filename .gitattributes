@@ -4,6 +4,8 @@
 /license.html svneol=native#text/html
 /readme.html svneol=native#text/html
 source/common/rbbirpt.txt svneol=native#text/plain
+source/common/uvectr64.cpp -text
+source/common/uvectr64.h -text
 source/data/brkitr/char.txt svneol=native#text/plain
 source/data/brkitr/char_th.txt svneol=native#text/plain
 source/data/brkitr/el.txt svneol=native#text/plain
