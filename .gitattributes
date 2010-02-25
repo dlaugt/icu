@@ -4,6 +4,8 @@
 /license.html svneol=native#text/html
 /readme.html svneol=native#text/html
 source/common/rbbirpt.txt svneol=native#text/plain
+source/common/uvectr64.cpp -text
+source/common/uvectr64.h -text
 source/data/brkitr/char.txt svneol=native#text/plain
 source/data/brkitr/char_th.txt svneol=native#text/plain
 source/data/brkitr/el.txt svneol=native#text/plain
@@ -1265,7 +1267,6 @@ source/data/misc/likelySubtags.txt svneol=native#text/plain
 source/data/misc/numberingSystems.txt svneol=native#text/plain
 source/data/misc/plurals.txt svneol=native#text/plain
 source/data/misc/supplementalData.txt svneol=native#text/plain
-source/data/misc/zoneinfo.txt svneol=native#text/plain
 source/data/rbnf/af.txt svneol=native#text/plain
 source/data/rbnf/am.txt svneol=native#text/plain
 source/data/rbnf/ar.txt svneol=native#text/plain
