@@ -2265,6 +2265,7 @@ source/test/testdata/casing.txt svneol=native#text/plain
 source/test/testdata/confusables.txt svneol=native#text/plain
 source/test/testdata/conversion.txt svneol=native#text/plain
 source/test/testdata/csdetest.xml svneol=native#text/xml
+source/test/testdata/dcfmtest.txt svneol=native#text/plain
 source/test/testdata/default.txt svneol=native#text/plain
 source/test/testdata/format.txt svneol=native#text/plain
 source/test/testdata/icuio.txt svneol=native#text/plain
