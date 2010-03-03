@@ -2211,6 +2211,8 @@ source/i18n/decfmtst.h -text
 source/i18n/regexcst.txt svneol=native#text/plain
 source/i18n/regextxt.cpp -text
 source/i18n/regextxt.h -text
+source/i18n/smpdtfst.cpp -text
+source/i18n/smpdtfst.h -text
 source/samples/break/readme.txt svneol=native#text/plain
 source/samples/cal/readme.txt svneol=native#text/plain
 source/samples/case/readme.txt svneol=native#text/plain
