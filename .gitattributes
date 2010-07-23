@@ -1773,7 +1773,6 @@ source/data/unidata/NormalizationTest.txt svneol=native#text/plain
 source/data/unidata/PropList.txt svneol=native#text/plain
 source/data/unidata/PropertyAliases.txt svneol=native#text/plain
 source/data/unidata/PropertyValueAliases.txt svneol=native#text/plain
-source/data/unidata/ScriptExtensions.txt -text
 source/data/unidata/Scripts.txt svneol=native#text/plain
 source/data/unidata/SentenceBreakProperty.txt svneol=native#text/plain
 source/data/unidata/SpecialCasing.txt svneol=native#text/plain
