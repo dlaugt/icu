@@ -19,6 +19,10 @@ demos/src/com/ibm/icu/dev/demo/translit/resources/Transliterator_Han_Pinyin.txt 
 demos/src/com/ibm/icu/dev/demo/translit/resources/Transliterator_Kanji_English.txt svneol=native#text/plain%3Bcharset%3Dutf-8
 demos/src/com/ibm/icu/dev/demo/translit/resources/Transliterator_Kanji_OnRomaji.txt svneol=native#text/plain%3Bcharset%3Dutf-8
 demos/src/com/ibm/icu/dev/demo/translit/thai_test.txt svneol=native#text/plain%3Bcharset%3Dutf-8
+eclipse-build/misc/about_icu.html svneol=native#text/html
+eclipse-build/misc/about_icu_base.html svneol=native#text/html
+eclipse-build/plugins.template/com.ibm.icu.tests/META-INF/MANIFEST.MF -text
+eclipse-build/plugins.template/com.ibm.icu/META-INF/MANIFEST.MF -text
 main/classes/charset/.classpath -text
 main/classes/charset/.project -text
 main/classes/charset/.settings/org.eclipse.jdt.core.prefs -text
