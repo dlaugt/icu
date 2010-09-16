@@ -1,0 +1,4 @@
+* text=auto !eol
+/i18n.vcxproj -text
+/i18n.vcxproj.filters -text
+/regexcst.txt svneol=native#text/plain
