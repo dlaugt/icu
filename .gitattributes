@@ -227,6 +227,7 @@ main/classes/core/src/com/ibm/icu/impl/Norm2AllModes.java svneol=native#text/pla
 main/classes/core/src/com/ibm/icu/impl/Normalizer2Impl.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/classes/core/src/com/ibm/icu/impl/OlsonTimeZone.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/classes/core/src/com/ibm/icu/impl/PVecToTrieCompactHandler.java svneol=native#text/plain%3Bcharset%3Dutf-8
+main/classes/core/src/com/ibm/icu/impl/PatternProps.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/classes/core/src/com/ibm/icu/impl/PatternTokenizer.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/classes/core/src/com/ibm/icu/impl/PluralRulesLoader.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/classes/core/src/com/ibm/icu/impl/PropsVectors.java svneol=native#text/plain%3Bcharset%3Dutf-8
