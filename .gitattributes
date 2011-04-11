@@ -238,7 +238,7 @@ main/classes/core/src/com/ibm/icu/impl/StringPrepDataReader.java svneol=native#t
 main/classes/core/src/com/ibm/icu/impl/StringUCharacterIterator.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/classes/core/src/com/ibm/icu/impl/TextTrieMap.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/classes/core/src/com/ibm/icu/impl/TimeZoneAdapter.java svneol=native#text/plain%3Bcharset%3Dutf-8
-main/classes/core/src/com/ibm/icu/impl/TimeZoneFormatImpl.java -text
+main/classes/core/src/com/ibm/icu/impl/TimeZoneGenericNames.java -text
 main/classes/core/src/com/ibm/icu/impl/Trie.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/classes/core/src/com/ibm/icu/impl/Trie2.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/classes/core/src/com/ibm/icu/impl/Trie2Writable.java svneol=native#text/plain%3Bcharset%3Dutf-8
