@@ -479,6 +479,7 @@ main/classes/core/src/com/ibm/icu/util/LocaleMatcher.java svneol=native#text/pla
 main/classes/core/src/com/ibm/icu/util/LocalePriorityList.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/classes/core/src/com/ibm/icu/util/Measure.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/classes/core/src/com/ibm/icu/util/MeasureUnit.java svneol=native#text/plain%3Bcharset%3Dutf-8
+main/classes/core/src/com/ibm/icu/util/Output.java -text
 main/classes/core/src/com/ibm/icu/util/OverlayBundle.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/classes/core/src/com/ibm/icu/util/RangeDateRule.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/classes/core/src/com/ibm/icu/util/RangeValueIterator.java svneol=native#text/plain%3Bcharset%3Dutf-8
