@@ -241,7 +241,9 @@ main/classes/core/src/com/ibm/icu/impl/StringPrepDataReader.java svneol=native#t
 main/classes/core/src/com/ibm/icu/impl/StringUCharacterIterator.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/classes/core/src/com/ibm/icu/impl/TextTrieMap.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/classes/core/src/com/ibm/icu/impl/TimeZoneAdapter.java svneol=native#text/plain%3Bcharset%3Dutf-8
-main/classes/core/src/com/ibm/icu/impl/TimeZoneFormat.java svneol=native#text/plain%3Bcharset%3Dutf-8
+main/classes/core/src/com/ibm/icu/impl/TimeZoneGenericNames.java -text
+main/classes/core/src/com/ibm/icu/impl/TimeZoneNamesFactoryImpl.java -text
+main/classes/core/src/com/ibm/icu/impl/TimeZoneNamesImpl.java -text
 main/classes/core/src/com/ibm/icu/impl/Trie.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/classes/core/src/com/ibm/icu/impl/Trie2.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/classes/core/src/com/ibm/icu/impl/Trie2Writable.java svneol=native#text/plain%3Bcharset%3Dutf-8
@@ -266,7 +268,6 @@ main/classes/core/src/com/ibm/icu/impl/UnicodeRegex.java svneol=native#text/plai
 main/classes/core/src/com/ibm/icu/impl/UnicodeSetStringSpan.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/classes/core/src/com/ibm/icu/impl/Utility.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/classes/core/src/com/ibm/icu/impl/ZoneMeta.java svneol=native#text/plain%3Bcharset%3Dutf-8
-main/classes/core/src/com/ibm/icu/impl/ZoneStringFormat.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/classes/core/src/com/ibm/icu/impl/data/BreakIteratorRules.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/classes/core/src/com/ibm/icu/impl/data/BreakIteratorRules_th.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/classes/core/src/com/ibm/icu/impl/data/HolidayBundle.java svneol=native#text/plain%3Bcharset%3Dutf-8
@@ -431,6 +432,8 @@ main/classes/core/src/com/ibm/icu/text/StringTransform.java svneol=native#text/p
 main/classes/core/src/com/ibm/icu/text/SymbolTable.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/classes/core/src/com/ibm/icu/text/ThaiBreakIterator.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/classes/core/src/com/ibm/icu/text/TimeUnitFormat.java svneol=native#text/plain%3Bcharset%3Dutf-8
+main/classes/core/src/com/ibm/icu/text/TimeZoneFormat.java -text
+main/classes/core/src/com/ibm/icu/text/TimeZoneNames.java -text
 main/classes/core/src/com/ibm/icu/text/Transform.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/classes/core/src/com/ibm/icu/text/UCharacterIterator.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/classes/core/src/com/ibm/icu/text/UFormat.java svneol=native#text/plain%3Bcharset%3Dutf-8
@@ -483,6 +486,7 @@ main/classes/core/src/com/ibm/icu/util/LocaleMatcher.java svneol=native#text/pla
 main/classes/core/src/com/ibm/icu/util/LocalePriorityList.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/classes/core/src/com/ibm/icu/util/Measure.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/classes/core/src/com/ibm/icu/util/MeasureUnit.java svneol=native#text/plain%3Bcharset%3Dutf-8
+main/classes/core/src/com/ibm/icu/util/Output.java -text
 main/classes/core/src/com/ibm/icu/util/OverlayBundle.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/classes/core/src/com/ibm/icu/util/RangeDateRule.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/classes/core/src/com/ibm/icu/util/RangeValueIterator.java svneol=native#text/plain%3Bcharset%3Dutf-8
