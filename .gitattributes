@@ -1354,6 +1354,7 @@ source/data/misc/icuver.txt svneol=native#text/plain
 source/data/misc/keyTypeData.txt svneol=native#text/plain%3Bcharset%3Dutf-8
 source/data/misc/likelySubtags.txt svneol=native#text/plain%3Bcharset%3Dutf-8
 source/data/misc/metaZones.txt svneol=native#text/plain%3Bcharset%3Dutf-8
+source/data/misc/metadata.txt svneol=native#text/plain
 source/data/misc/numberingSystems.txt svneol=native#text/plain%3Bcharset%3Dutf-8
 source/data/misc/plurals.txt svneol=native#text/plain%3Bcharset%3Dutf-8
 source/data/misc/supplementalData.txt svneol=native#text/plain%3Bcharset%3Dutf-8
@@ -2361,6 +2362,10 @@ source/i18n/i18n.vcxproj.filters -text
 source/i18n/regexcst.txt svneol=native#text/plain
 source/i18n/smpdtfst.cpp -text
 source/i18n/smpdtfst.h -text
+source/i18n/udateintervalformat.cpp -text
+source/i18n/unicode/udateintervalformat.h -text
+source/i18n/unicode/upluralrules.h -text
+source/i18n/upluralrules.cpp -text
 source/io/io.vcxproj -text
 source/io/io.vcxproj.filters -text
 source/layout/layout.vcxproj -text
@@ -2446,8 +2451,10 @@ source/samples/ustring/ustring.vcxproj -text
 source/samples/ustring/ustring.vcxproj.filters -text
 source/stubdata/stubdata.vcxproj -text
 source/stubdata/stubdata.vcxproj.filters -text
+source/test/cintltst/cdateintervalformattest.c -text
 source/test/cintltst/cintltst.vcxproj -text
 source/test/cintltst/cintltst.vcxproj.filters -text
+source/test/cintltst/cpluralrulestest.c -text
 source/test/compat/readme.txt svneol=native#text/plain
 source/test/hdrtst/cxxfiles.txt svneol=native#text/plain
 source/test/hdrtst/dfiles.txt svneol=native#text/plain
