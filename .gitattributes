@@ -2709,6 +2709,7 @@ source/stubdata/stubdata.vcxproj.filters -text
 source/test/cintltst/cintltst.vcxproj -text
 source/test/cintltst/cintltst.vcxproj.filters -text
 source/test/compat/readme.txt svneol=native#text/plain
+source/test/depstest/dependencies.txt svneol=native#text/plain
 source/test/hdrtst/cxxfiles.txt svneol=native#text/plain
 source/test/hdrtst/dfiles.txt svneol=native#text/plain
 source/test/hdrtst/pfiles.txt svneol=native#text/plain
