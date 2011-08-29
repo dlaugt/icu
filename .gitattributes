@@ -160,8 +160,10 @@ main/classes/collate/.settings/org.eclipse.jdt.core.prefs -text
 main/classes/collate/.settings/org.eclipse.jdt.ui.prefs -text
 main/classes/collate/collate-build.launch -text
 main/classes/collate/src/com/ibm/icu/text/AlphabeticIndex.java svneol=native#text/plain%3Bcharset%3Dutf-8
+main/classes/collate/src/com/ibm/icu/text/CollationElementBuffer.java -text
 main/classes/collate/src/com/ibm/icu/text/CollationElementIterator.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/classes/collate/src/com/ibm/icu/text/CollationKey.java svneol=native#text/plain%3Bcharset%3Dutf-8
+main/classes/collate/src/com/ibm/icu/text/CollationPCE.java -text
 main/classes/collate/src/com/ibm/icu/text/CollationParsedRuleBuilder.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/classes/collate/src/com/ibm/icu/text/CollationRuleParser.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/classes/collate/src/com/ibm/icu/text/Collator.java svneol=native#text/plain%3Bcharset%3Dutf-8
