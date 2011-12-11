@@ -2725,6 +2725,7 @@ source/samples/ustring/ustring.vcxproj.filters -text
 source/stubdata/CMakeLists.txt -text
 source/stubdata/stubdata.vcxproj -text
 source/stubdata/stubdata.vcxproj.filters -text
+source/test/CMakeLists.txt -text
 source/test/cintltst/cintltst.vcxproj -text
 source/test/cintltst/cintltst.vcxproj.filters -text
 source/test/compat/readme.txt svneol=native#text/plain
@@ -2732,8 +2733,10 @@ source/test/depstest/dependencies.txt svneol=native#text/plain
 source/test/hdrtst/cxxfiles.txt svneol=native#text/plain
 source/test/hdrtst/dfiles.txt svneol=native#text/plain
 source/test/hdrtst/pfiles.txt svneol=native#text/plain
+source/test/intltest/CMakeLists.txt -text
 source/test/intltest/intltest.vcxproj -text
 source/test/intltest/intltest.vcxproj.filters -text
+source/test/iotest/CMakeLists.txt -text
 source/test/iotest/iotest.vcxproj -text
 source/test/iotest/iotest.vcxproj.filters -text
 source/test/letest/cletest.vcxproj -text
