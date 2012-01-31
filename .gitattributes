@@ -2721,7 +2721,9 @@ source/samples/udata/reader.vcxproj.filters -text
 source/samples/udata/readme.txt svneol=native#text/plain
 source/samples/udata/writer.vcxproj -text
 source/samples/udata/writer.vcxproj.filters -text
+source/samples/ufortune/CMakeLists.txt svneol=native#text/plain
 source/samples/ufortune/readme.txt svneol=native#text/plain
+source/samples/ufortune/resources/CMakeLists.txt svneol=native#text/plain
 source/samples/ufortune/resources/es.txt svneol=native#text/plain%3Bcharset%3Dutf-8
 source/samples/ufortune/resources/res-file-list.txt svneol=native#text/plain
 source/samples/ufortune/resources/root.txt svneol=native#text/plain
