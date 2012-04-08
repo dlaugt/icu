@@ -2729,9 +2729,11 @@ source/samples/ufortune/resources/res-file-list.txt svneol=native#text/plain
 source/samples/ufortune/resources/root.txt svneol=native#text/plain
 source/samples/ufortune/ufortune.vcxproj -text
 source/samples/ufortune/ufortune.vcxproj.filters -text
+source/samples/ugrep/CMakeLists.txt svneol=native#text/plain
 source/samples/ugrep/readme.txt svneol=native#text/plain
 source/samples/ugrep/ugrep.vcxproj -text
 source/samples/ugrep/ugrep.vcxproj.filters -text
+source/samples/uresb/CMakeLists.txt svneol=native#text/plain
 source/samples/uresb/en.txt svneol=native#text/plain
 source/samples/uresb/readme.txt svneol=native#text/plain
 source/samples/uresb/resources.vcxproj -text
@@ -2740,6 +2742,7 @@ source/samples/uresb/root.txt svneol=native#text/plain
 source/samples/uresb/sr.txt svneol=native#text/plain%3Bcharset%3Dwindows-1251
 source/samples/uresb/uresb.vcxproj -text
 source/samples/uresb/uresb.vcxproj.filters -text
+source/samples/ustring/CMakeLists.txt svneol=native#text/plain
 source/samples/ustring/readme.txt svneol=native#text/plain
 source/samples/ustring/ustring.vcxproj -text
 source/samples/ustring/ustring.vcxproj.filters -text
