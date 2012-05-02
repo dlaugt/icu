@@ -2764,6 +2764,7 @@ source/test/testdata/TestFont1.otf -text
 source/test/testdata/WordBreakTest.txt svneol=native#text/plain%3Bcharset%3Dutf-8
 source/test/testdata/calendar.txt svneol=native#text/plain
 source/test/testdata/casing.txt svneol=native#text/plain%3Bcharset%3Dutf-8
+source/test/testdata/collationtest.txt svneol=native#text/plain%3Bcharset%3Dutf-8
 source/test/testdata/confusables.txt svneol=native#text/plain%3Bcharset%3Dutf-8
 source/test/testdata/conversion.txt svneol=native#text/plain
 source/test/testdata/csdetest.xml svneol=native#text/xml
