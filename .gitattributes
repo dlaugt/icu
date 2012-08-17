@@ -209,6 +209,7 @@ main/classes/core/src/com/ibm/icu/impl/ICUConfig.java svneol=native#text/plain%3
 main/classes/core/src/com/ibm/icu/impl/ICUData.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/classes/core/src/com/ibm/icu/impl/ICUDataVersion.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/classes/core/src/com/ibm/icu/impl/ICUDebug.java svneol=native#text/plain%3Bcharset%3Dutf-8
+main/classes/core/src/com/ibm/icu/impl/ICULoadingCache.java -text
 main/classes/core/src/com/ibm/icu/impl/ICULocaleService.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/classes/core/src/com/ibm/icu/impl/ICULogger.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/classes/core/src/com/ibm/icu/impl/ICUNotifier.java svneol=native#text/plain%3Bcharset%3Dutf-8
