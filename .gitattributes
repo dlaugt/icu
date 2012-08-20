@@ -246,6 +246,7 @@ main/classes/core/src/com/ibm/icu/impl/ResourceBundleWrapper.java svneol=native#
 main/classes/core/src/com/ibm/icu/impl/Row.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/classes/core/src/com/ibm/icu/impl/RuleCharacterIterator.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/classes/core/src/com/ibm/icu/impl/SimpleCache.java svneol=native#text/plain%3Bcharset%3Dutf-8
+main/classes/core/src/com/ibm/icu/impl/SimpleLoadingCache.java -text
 main/classes/core/src/com/ibm/icu/impl/SoftCache.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/classes/core/src/com/ibm/icu/impl/SortedSetRelation.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/classes/core/src/com/ibm/icu/impl/StringPrepDataReader.java svneol=native#text/plain%3Bcharset%3Dutf-8
