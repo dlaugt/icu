@@ -8,6 +8,7 @@ source/common/common.vcxproj -text
 source/common/common.vcxproj.filters -text
 source/common/rbbirpt.txt svneol=native#text/plain
 source/common/unicode/enumset.h -text
+source/common/uvector_base.h -text
 source/data/brkitr/char.txt svneol=native#text/plain
 source/data/brkitr/cjdict.txt svneol=native#text/plain%3Bcharset%3Dutf-8
 source/data/brkitr/el.txt svneol=native#text/plain%3Bcharset%3Dutf-8
