@@ -3124,6 +3124,8 @@ samples/msgfmt/msgfmt.vcxproj.filters -text
 samples/numfmt/numfmt.vcxproj -text
 samples/numfmt/numfmt.vcxproj.filters -text
 samples/numfmt/readme.txt svneol=native#text/plain
+samples/plurfmtsample/plurfmtsample.vcxproj -text
+samples/plurfmtsample/plurfmtsample.vcxproj.filters -text
 samples/props/props.vcxproj -text
 samples/props/props.vcxproj.filters -text
 samples/props/readme.txt svneol=native#text/plain
