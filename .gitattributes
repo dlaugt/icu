@@ -3113,6 +3113,8 @@ samples/date/date.vcxproj.filters -text
 samples/date/readme.txt svneol=native#text/plain
 samples/datefmt/datefmt.vcxproj -text
 samples/datefmt/datefmt.vcxproj.filters -text
+samples/dtitvfmtsample/dtitvfmtsample.vcxproj -text
+samples/dtitvfmtsample/dtitvfmtsample.vcxproj.filters -text
 samples/layout/Sample.txt svneol=native#text/plain%3Bcharset%3Dutf-8
 samples/layout/layout.vcxproj -text
 samples/layout/layout.vcxproj.filters -text
