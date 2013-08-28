@@ -507,6 +507,7 @@ main/classes/core/src/com/ibm/icu/util/IndianCalendar.java svneol=native#text/pl
 main/classes/core/src/com/ibm/icu/util/InitialTimeZoneRule.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/classes/core/src/com/ibm/icu/util/IslamicCalendar.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/classes/core/src/com/ibm/icu/util/JapaneseCalendar.java svneol=native#text/plain%3Bcharset%3Dutf-8
+main/classes/core/src/com/ibm/icu/util/Leniency.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/classes/core/src/com/ibm/icu/util/LocaleData.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/classes/core/src/com/ibm/icu/util/LocaleMatcher.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/classes/core/src/com/ibm/icu/util/LocalePriorityList.java svneol=native#text/plain%3Bcharset%3Dutf-8
