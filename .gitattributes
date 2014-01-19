@@ -690,6 +690,7 @@ main/tests/collate/.settings/org.eclipse.jdt.ui.prefs -text
 main/tests/collate/collate-tests-build.launch -text
 main/tests/collate/src/com/ibm/icu/dev/data/CollationTest_NON_IGNORABLE_SHORT.txt svneol=native#text/plain
 main/tests/collate/src/com/ibm/icu/dev/data/CollationTest_SHIFTED_SHORT.txt svneol=native#text/plain
+main/tests/collate/src/com/ibm/icu/dev/data/collationtest.txt svneol=native#text/plain%3Bcharset%3Dutf-8
 main/tests/collate/src/com/ibm/icu/dev/data/riwords.txt svneol=native#text/plain%3Bcharset%3Dutf-8
 main/tests/collate/src/com/ibm/icu/dev/test/TestAllCollate.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/tests/collate/src/com/ibm/icu/dev/test/collator/AlphabeticIndexTest.java svneol=native#text/plain%3Bcharset%3Dutf-8
