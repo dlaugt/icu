@@ -192,7 +192,6 @@ main/classes/collate/src/com/ibm/icu/impl/coll/ContractionsAndExpansions.java sv
 main/classes/collate/src/com/ibm/icu/impl/coll/FCDIterCollationIterator.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/classes/collate/src/com/ibm/icu/impl/coll/FCDUTF16CollationIterator.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/classes/collate/src/com/ibm/icu/impl/coll/IterCollationIterator.java svneol=native#text/plain%3Bcharset%3Dutf-8
-main/classes/collate/src/com/ibm/icu/impl/coll/RuleBasedCollator.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/classes/collate/src/com/ibm/icu/impl/coll/SharedObject.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/classes/collate/src/com/ibm/icu/impl/coll/TailoredSet.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/classes/collate/src/com/ibm/icu/impl/coll/UTF16CollationIterator.java svneol=native#text/plain%3Bcharset%3Dutf-8
