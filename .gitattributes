@@ -165,7 +165,6 @@ main/classes/collate/.settings/org.eclipse.jdt.core.prefs -text
 main/classes/collate/.settings/org.eclipse.jdt.ui.prefs -text
 main/classes/collate/collate-build.launch -text
 main/classes/collate/findbugs-exclude.xml svneol=native#text/xml
-main/classes/collate/src/com/ibm/icu/impl/ImplicitCEGenerator.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/classes/collate/src/com/ibm/icu/impl/coll/Collation.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/classes/collate/src/com/ibm/icu/impl/coll/CollationBuilder.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/classes/collate/src/com/ibm/icu/impl/coll/CollationCompare.java svneol=native#text/plain%3Bcharset%3Dutf-8
