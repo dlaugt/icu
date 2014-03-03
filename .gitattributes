@@ -714,7 +714,6 @@ main/tests/collate/src/com/ibm/icu/dev/test/collator/LotusCollationKoreanTest.ja
 main/tests/collate/src/com/ibm/icu/dev/test/collator/TestAll.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/tests/collate/src/com/ibm/icu/dev/test/collator/TestComparator.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/tests/collate/src/com/ibm/icu/dev/test/collator/UCAConformanceTest.java svneol=native#text/plain%3Bcharset%3Dutf-8
-main/tests/collate/src/com/ibm/icu/dev/test/collator/collationtest.txt -text
 main/tests/collate/src/com/ibm/icu/dev/test/format/GlobalizationPreferencesTest.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/tests/collate/src/com/ibm/icu/dev/test/format/RbnfLenientScannerTest.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/tests/collate/src/com/ibm/icu/dev/test/search/SearchTest.java svneol=native#text/plain%3Bcharset%3Dutf-8
