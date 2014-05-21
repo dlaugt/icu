@@ -384,6 +384,7 @@ main/classes/core/src/com/ibm/icu/lang/package.html svneol=native#text/html
 main/classes/core/src/com/ibm/icu/math/BigDecimal.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/classes/core/src/com/ibm/icu/math/MathContext.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/classes/core/src/com/ibm/icu/math/package.html svneol=native#text/html
+main/classes/core/src/com/ibm/icu/simple/MessageFormat.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/classes/core/src/com/ibm/icu/text/ArabicShaping.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/classes/core/src/com/ibm/icu/text/ArabicShapingException.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/classes/core/src/com/ibm/icu/text/Bidi.java svneol=native#text/plain%3Bcharset%3Dutf-8
