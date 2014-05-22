@@ -384,7 +384,11 @@ main/classes/core/src/com/ibm/icu/lang/package.html svneol=native#text/html
 main/classes/core/src/com/ibm/icu/math/BigDecimal.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/classes/core/src/com/ibm/icu/math/MathContext.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/classes/core/src/com/ibm/icu/math/package.html svneol=native#text/html
+main/classes/core/src/com/ibm/icu/simple/LocaleElements_plurals.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/classes/core/src/com/ibm/icu/simple/MessageFormat.java svneol=native#text/plain%3Bcharset%3Dutf-8
+main/classes/core/src/com/ibm/icu/simple/PluralFormat.java svneol=native#text/plain%3Bcharset%3Dutf-8
+main/classes/core/src/com/ibm/icu/simple/PluralRules.java svneol=native#text/plain%3Bcharset%3Dutf-8
+main/classes/core/src/com/ibm/icu/simple/PluralRulesLoader.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/classes/core/src/com/ibm/icu/text/ArabicShaping.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/classes/core/src/com/ibm/icu/text/ArabicShapingException.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/classes/core/src/com/ibm/icu/text/Bidi.java svneol=native#text/plain%3Bcharset%3Dutf-8
@@ -1178,6 +1182,7 @@ main/tests/core/src/com/ibm/icu/dev/test/serializable/data/ICU_53.1/com.ibm.icu.
 main/tests/core/src/com/ibm/icu/dev/test/serializable/data/ICU_53.1/com.ibm.icu.util.VTimeZone.dat -text
 main/tests/core/src/com/ibm/icu/dev/test/shaping/ArabicShapingRegTest.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/tests/core/src/com/ibm/icu/dev/test/shaping/ArabicShapingTest.java svneol=native#text/plain%3Bcharset%3Dutf-8
+main/tests/core/src/com/ibm/icu/dev/test/simple/SimpleMessageFormatTest.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/tests/core/src/com/ibm/icu/dev/test/stringprep/IDNAConformanceTest.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/tests/core/src/com/ibm/icu/dev/test/stringprep/IDNAReference.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/tests/core/src/com/ibm/icu/dev/test/stringprep/NFS4StringPrep.java svneol=native#text/plain%3Bcharset%3Dutf-8
