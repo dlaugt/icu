@@ -10,6 +10,7 @@ currency/src/com/ibm/icu/dev/tool/currency/CurrencyDataEntry.java svneol=native#
 currency/src/com/ibm/icu/dev/tool/currency/CurrencyDataParser.java svneol=native#text/plain%3Bcharset%3Dutf-8
 currency/src/com/ibm/icu/dev/tool/currency/Main.java svneol=native#text/plain%3Bcharset%3Dutf-8
 currency/src/com/ibm/icu/dev/tool/currency/NumericCodeData.java svneol=native#text/plain%3Bcharset%3Dutf-8
+databuild/c/iculslocs/trim_en.json -text svneol=unset#application/json
 multi/c/Makefile-c.inc -text
 multi/c/patch/3_0 -text
 multi/c/patch/3_2 -text
