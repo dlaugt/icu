@@ -3230,10 +3230,6 @@ source/extra/uconv/uconv.vcxproj.filters -text
 source/i18n/i18n.vcxproj -text
 source/i18n/i18n.vcxproj.filters -text
 source/i18n/regexcst.txt svneol=native#text/plain
-source/i18n/scientificformathelper.cpp -text
-source/i18n/sharedbreakiterator.cpp -text
-source/i18n/sharedbreakiterator.h -text
-source/i18n/unicode/scientificformathelper.h -text
 source/io/io.vcxproj -text
 source/io/io.vcxproj.filters -text
 source/layout/layout.vcxproj -text
@@ -3329,12 +3325,13 @@ source/test/cintltst/cintltst.vcxproj -text
 source/test/cintltst/cintltst.vcxproj.filters -text
 source/test/compat/readme.txt svneol=native#text/plain
 source/test/depstest/dependencies.txt svneol=native#text/plain
+source/test/depstest/icu-dependencies-mode.el -text
 source/test/hdrtst/cxxfiles.txt svneol=native#text/plain
 source/test/hdrtst/dfiles.txt svneol=native#text/plain
 source/test/hdrtst/pfiles.txt svneol=native#text/plain
 source/test/intltest/intltest.vcxproj -text
 source/test/intltest/intltest.vcxproj.filters -text
-source/test/intltest/scientificformathelpertest.cpp -text
+source/test/intltest/numfmtspectest.cpp -text
 source/test/iotest/iotest.vcxproj -text
 source/test/iotest/iotest.vcxproj.filters -text
 source/test/letest/cletest.vcxproj -text
