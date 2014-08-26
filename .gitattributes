@@ -429,6 +429,7 @@ main/classes/core/src/com/ibm/icu/text/DictionaryMatcher.java svneol=native#text
 main/classes/core/src/com/ibm/icu/text/DigitList.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/classes/core/src/com/ibm/icu/text/DisplayContext.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/classes/core/src/com/ibm/icu/text/DurationFormat.java svneol=native#text/plain%3Bcharset%3Dutf-8
+main/classes/core/src/com/ibm/icu/text/FilteredBreakIteratorBuilder.java -text
 main/classes/core/src/com/ibm/icu/text/FilteredNormalizer2.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/classes/core/src/com/ibm/icu/text/IDNA.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/classes/core/src/com/ibm/icu/text/IdentifierInfo.java svneol=native#text/plain%3Bcharset%3Dutf-8
@@ -478,6 +479,7 @@ main/classes/core/src/com/ibm/icu/text/SCSU.java svneol=native#text/plain%3Bchar
 main/classes/core/src/com/ibm/icu/text/ScientificFormatHelper.java svneol=native#text/plain%3Bcharset%3Dutf-8%3Bcharset%3Dutf-8
 main/classes/core/src/com/ibm/icu/text/SelectFormat.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/classes/core/src/com/ibm/icu/text/SimpleDateFormat.java svneol=native#text/plain%3Bcharset%3Dutf-8
+main/classes/core/src/com/ibm/icu/text/SimpleFilteredBreakIteratorBuilder.java -text
 main/classes/core/src/com/ibm/icu/text/SpoofChecker.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/classes/core/src/com/ibm/icu/text/StringCharacterIterator.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/classes/core/src/com/ibm/icu/text/StringPrep.java svneol=native#text/plain%3Bcharset%3Dutf-8
