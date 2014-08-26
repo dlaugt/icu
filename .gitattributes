@@ -8,6 +8,8 @@ source/allinone/icucheck.bat -text
 source/common/common.vcxproj -text
 source/common/common.vcxproj.filters -text
 source/common/rbbirpt.txt svneol=native#text/plain
+source/common/unifiedcache.cpp -text
+source/common/unifiedcache.h -text
 source/data/brkitr/char.txt svneol=native#text/plain
 source/data/brkitr/cjdict.txt svneol=native#text/plain%3Bcharset%3Dutf-8
 source/data/brkitr/de.txt svneol=native#text/plain%3Bcharset%3Dutf-8
@@ -3333,6 +3335,7 @@ source/test/hdrtst/pfiles.txt svneol=native#text/plain
 source/test/intltest/intltest.vcxproj -text
 source/test/intltest/intltest.vcxproj.filters -text
 source/test/intltest/numfmtspectest.cpp -text
+source/test/intltest/unifiedcachetest.cpp -text
 source/test/iotest/iotest.vcxproj -text
 source/test/iotest/iotest.vcxproj.filters -text
 source/test/letest/cletest.vcxproj -text
