@@ -3860,6 +3860,8 @@ source/test/depstest/icu-dependencies-mode.el -text
 source/test/hdrtst/cxxfiles.txt svneol=native#text/plain
 source/test/hdrtst/dfiles.txt svneol=native#text/plain
 source/test/hdrtst/pfiles.txt svneol=native#text/plain
+source/test/intltest/decimalformatpatterntuple.cpp -text
+source/test/intltest/decimalformatpatterntuple.h -text
 source/test/intltest/intltest.vcxproj -text
 source/test/intltest/intltest.vcxproj.filters -text
 source/test/intltest/quantityformattertest.cpp -text
@@ -3939,6 +3941,7 @@ source/test/testdata/nfs4_cs_prep_ci.txt svneol=native#text/plain
 source/test/testdata/nfs4_cs_prep_cs.txt svneol=native#text/plain
 source/test/testdata/nfs4_mixed_prep_p.txt svneol=native#text/plain
 source/test/testdata/nfs4_mixed_prep_s.txt svneol=native#text/plain
+source/test/testdata/numberformattestpattern.txt -text
 source/test/testdata/old_e_testtypes.res -text
 source/test/testdata/old_l_testtypes.res -text
 source/test/testdata/ra.txt svneol=native#text/plain
