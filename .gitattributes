@@ -2,6 +2,7 @@
 /APIChangeReport.html svneol=native#text/html
 /icu4c.css -text svneol=unset#text/css
 /license.html svneol=native#text/html%3Bcharset%3Dutf-8
+/readme-cmake.txt -text
 /readme.html svneol=native#text/html
 source/CMakeLists.txt -text
 source/aclocal.m4 -text
