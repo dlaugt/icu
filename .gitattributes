@@ -425,11 +425,15 @@ main/classes/core/src/com/ibm/icu/text/DateIntervalFormat.java svneol=native#tex
 main/classes/core/src/com/ibm/icu/text/DateIntervalInfo.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/classes/core/src/com/ibm/icu/text/DateTimePatternGenerator.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/classes/core/src/com/ibm/icu/text/DecimalFormat.java svneol=native#text/plain%3Bcharset%3Dutf-8
+main/classes/core/src/com/ibm/icu/text/DecimalFormat2.java -text
 main/classes/core/src/com/ibm/icu/text/DecimalFormatSymbols.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/classes/core/src/com/ibm/icu/text/DictionaryBreakEngine.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/classes/core/src/com/ibm/icu/text/DictionaryData.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/classes/core/src/com/ibm/icu/text/DictionaryMatcher.java svneol=native#text/plain%3Bcharset%3Dutf-8
+main/classes/core/src/com/ibm/icu/text/DigitBuilder.java -text
+main/classes/core/src/com/ibm/icu/text/DigitFormatter.java -text
 main/classes/core/src/com/ibm/icu/text/DigitList.java svneol=native#text/plain%3Bcharset%3Dutf-8
+main/classes/core/src/com/ibm/icu/text/DigitList2.java -text
 main/classes/core/src/com/ibm/icu/text/DisplayContext.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/classes/core/src/com/ibm/icu/text/DurationFormat.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/classes/core/src/com/ibm/icu/text/FilteredBreakIteratorBuilder.java svneol=native#text/plain%3Bcharset%3Dutf-8
@@ -857,6 +861,8 @@ main/tests/core/src/com/ibm/icu/dev/test/format/DateFormatRoundTripTest.java svn
 main/tests/core/src/com/ibm/icu/dev/test/format/DateFormatTest.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/tests/core/src/com/ibm/icu/dev/test/format/DateIntervalFormatTest.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/tests/core/src/com/ibm/icu/dev/test/format/DateTimeGeneratorTest.java svneol=native#text/plain%3Bcharset%3Dutf-8
+main/tests/core/src/com/ibm/icu/dev/test/format/DecimalFormat2Test.java -text
+main/tests/core/src/com/ibm/icu/dev/test/format/DigitList2Test.java -text
 main/tests/core/src/com/ibm/icu/dev/test/format/IntlTestDateFormat.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/tests/core/src/com/ibm/icu/dev/test/format/IntlTestDateFormatAPI.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/tests/core/src/com/ibm/icu/dev/test/format/IntlTestDateFormatAPIC.java svneol=native#text/plain%3Bcharset%3Dutf-8
