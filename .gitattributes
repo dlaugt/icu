@@ -3862,6 +3862,8 @@ source/test/hdrtst/dfiles.txt svneol=native#text/plain
 source/test/hdrtst/pfiles.txt svneol=native#text/plain
 source/test/intltest/intltest.vcxproj -text
 source/test/intltest/intltest.vcxproj.filters -text
+source/test/intltest/numberformattesttuple.cpp -text
+source/test/intltest/numberformattesttuple.h -text
 source/test/iotest/iotest.vcxproj -text
 source/test/iotest/iotest.vcxproj.filters -text
 source/test/letest/cletest.vcxproj -text
@@ -3938,6 +3940,7 @@ source/test/testdata/nfs4_cs_prep_ci.txt svneol=native#text/plain
 source/test/testdata/nfs4_cs_prep_cs.txt svneol=native#text/plain
 source/test/testdata/nfs4_mixed_prep_p.txt svneol=native#text/plain
 source/test/testdata/nfs4_mixed_prep_s.txt svneol=native#text/plain
+source/test/testdata/numberformattestspecification.txt -text
 source/test/testdata/old_e_testtypes.res -text
 source/test/testdata/old_l_testtypes.res -text
 source/test/testdata/ra.txt svneol=native#text/plain
