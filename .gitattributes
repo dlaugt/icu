@@ -851,6 +851,7 @@ main/tests/core/src/com/ibm/icu/dev/test/duration/testdata/testdata_zh_Hant_HK.t
 main/tests/core/src/com/ibm/icu/dev/test/format/BigNumberFormatTest.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/tests/core/src/com/ibm/icu/dev/test/format/CompactDecimalFormatTest.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/tests/core/src/com/ibm/icu/dev/test/format/DataDrivenFormatTest.java svneol=native#text/plain%3Bcharset%3Dutf-8
+main/tests/core/src/com/ibm/icu/dev/test/format/DataDrivenNumberFormatTestSuite.java -text
 main/tests/core/src/com/ibm/icu/dev/test/format/DateFormatMiscTests.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/tests/core/src/com/ibm/icu/dev/test/format/DateFormatRegressionTest.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/tests/core/src/com/ibm/icu/dev/test/format/DateFormatRegressionTestJ.java svneol=native#text/plain%3Bcharset%3Dutf-8
