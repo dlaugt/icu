@@ -3881,6 +3881,8 @@ source/test/depstest/icu-dependencies-mode.el -text
 source/test/hdrtst/cxxfiles.txt svneol=native#text/plain
 source/test/hdrtst/dfiles.txt svneol=native#text/plain
 source/test/hdrtst/pfiles.txt svneol=native#text/plain
+source/test/intltest/datadrivennumberformattestsuite.cpp -text
+source/test/intltest/datadrivennumberformattestsuite.h -text
 source/test/intltest/intltest.vcxproj -text
 source/test/intltest/intltest.vcxproj.filters -text
 source/test/intltest/numberformat2test.cpp -text
