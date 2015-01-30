@@ -7,6 +7,8 @@ source/aclocal.m4 -text
 source/allinone/icucheck.bat -text
 source/common/common.vcxproj -text
 source/common/common.vcxproj.filters -text
+source/common/pluralmap.cpp -text
+source/common/pluralmap.h -text
 source/common/rbbirpt.txt svneol=native#text/plain
 source/data/brkitr/burmesedict.txt svneol=native#text/plain%3Bcharset%3Dutf-8
 source/data/brkitr/char.txt svneol=native#text/plain
