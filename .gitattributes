@@ -226,7 +226,9 @@ main/classes/core/src/com/ibm/icu/impl/CurrencyData.java svneol=native#text/plai
 main/classes/core/src/com/ibm/icu/impl/DateNumberFormat.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/classes/core/src/com/ibm/icu/impl/Deque.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/classes/core/src/com/ibm/icu/impl/Differ.java svneol=native#text/plain%3Bcharset%3Dutf-8
+main/classes/core/src/com/ibm/icu/impl/DigitInterval.java -text
 main/classes/core/src/com/ibm/icu/impl/DontCareFieldPosition.java svneol=native#text/plain%3Bcharset%3Dutf-8
+main/classes/core/src/com/ibm/icu/impl/FixedPrecision.java -text
 main/classes/core/src/com/ibm/icu/impl/Grego.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/classes/core/src/com/ibm/icu/impl/ICUBinary.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/classes/core/src/com/ibm/icu/impl/ICUCache.java svneol=native#text/plain%3Bcharset%3Dutf-8
@@ -268,6 +270,8 @@ main/classes/core/src/com/ibm/icu/impl/ReplaceableUCharacterIterator.java svneol
 main/classes/core/src/com/ibm/icu/impl/ResourceBundleWrapper.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/classes/core/src/com/ibm/icu/impl/Row.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/classes/core/src/com/ibm/icu/impl/RuleCharacterIterator.java svneol=native#text/plain%3Bcharset%3Dutf-8
+main/classes/core/src/com/ibm/icu/impl/ScientificPrecision.java -text
+main/classes/core/src/com/ibm/icu/impl/SignificantDigitInterval.java -text
 main/classes/core/src/com/ibm/icu/impl/SimpleCache.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/classes/core/src/com/ibm/icu/impl/SimpleFilteredSentenceBreakIterator.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/classes/core/src/com/ibm/icu/impl/SimplePatternFormatter.java svneol=native#text/plain%3Bcharset%3Dutf-8
@@ -304,6 +308,7 @@ main/classes/core/src/com/ibm/icu/impl/UTS46.java svneol=native#text/plain%3Bcha
 main/classes/core/src/com/ibm/icu/impl/UnicodeRegex.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/classes/core/src/com/ibm/icu/impl/UnicodeSetStringSpan.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/classes/core/src/com/ibm/icu/impl/Utility.java svneol=native#text/plain%3Bcharset%3Dutf-8
+main/classes/core/src/com/ibm/icu/impl/ValueObject.java -text
 main/classes/core/src/com/ibm/icu/impl/ZoneMeta.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/classes/core/src/com/ibm/icu/impl/data/BreakIteratorRules.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/classes/core/src/com/ibm/icu/impl/data/BreakIteratorRules_th.java svneol=native#text/plain%3Bcharset%3Dutf-8
