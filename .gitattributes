@@ -10,6 +10,7 @@ source/common/common.vcxproj.filters -text
 source/common/pluralmap.cpp -text
 source/common/pluralmap.h -text
 source/common/rbbirpt.txt svneol=native#text/plain
+source/common/unistrappender.h -text
 source/data/brkitr/burmesedict.txt svneol=native#text/plain%3Bcharset%3Dutf-8
 source/data/brkitr/char.txt svneol=native#text/plain
 source/data/brkitr/cjdict.txt svneol=native#text/plain%3Bcharset%3Dutf-8
