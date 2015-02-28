@@ -443,6 +443,7 @@ main/classes/core/src/com/ibm/icu/text/IdentifierInfo.java svneol=native#text/pl
 main/classes/core/src/com/ibm/icu/text/KhmerBreakEngine.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/classes/core/src/com/ibm/icu/text/LanguageBreakEngine.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/classes/core/src/com/ibm/icu/text/LaoBreakEngine.java svneol=native#text/plain%3Bcharset%3Dutf-8
+main/classes/core/src/com/ibm/icu/text/Linkifier.java -text
 main/classes/core/src/com/ibm/icu/text/ListFormatter.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/classes/core/src/com/ibm/icu/text/LocaleDisplayNames.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/classes/core/src/com/ibm/icu/text/MeasureFormat.java svneol=native#text/plain%3Bcharset%3Dutf-8
@@ -1274,6 +1275,7 @@ main/tests/core/src/com/ibm/icu/dev/test/stringprep/TestData.java svneol=native#
 main/tests/core/src/com/ibm/icu/dev/test/stringprep/TestIDNA.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/tests/core/src/com/ibm/icu/dev/test/stringprep/TestIDNARef.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/tests/core/src/com/ibm/icu/dev/test/stringprep/TestInputDataStructure.java svneol=native#text/plain%3Bcharset%3Dutf-8
+main/tests/core/src/com/ibm/icu/dev/test/stringprep/TestLinkifier.java -text
 main/tests/core/src/com/ibm/icu/dev/test/stringprep/TestStringPrep.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/tests/core/src/com/ibm/icu/dev/test/stringprep/TestStringPrepProfiles.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/tests/core/src/com/ibm/icu/dev/test/text/SpoofCheckerTest.java svneol=native#text/plain%3Bcharset%3Dutf-8
