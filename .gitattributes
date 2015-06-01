@@ -773,7 +773,6 @@ main/tests/core/src/com/ibm/icu/dev/test/format/IntlTestNumberFormat.java svneol
 main/tests/core/src/com/ibm/icu/dev/test/format/IntlTestNumberFormatAPI.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/tests/core/src/com/ibm/icu/dev/test/format/IntlTestSimpleDateFormatAPI.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/tests/core/src/com/ibm/icu/dev/test/format/ListFormatterTest.java svneol=native#text/plain%3Bcharset%3Dutf-8
-main/tests/core/src/com/ibm/icu/dev/test/format/Maybe.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/tests/core/src/com/ibm/icu/dev/test/format/MeasureUnitTest.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/tests/core/src/com/ibm/icu/dev/test/format/MessagePatternUtilTest.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/tests/core/src/com/ibm/icu/dev/test/format/MessageRegression.java svneol=native#text/plain%3Bcharset%3Dutf-8
