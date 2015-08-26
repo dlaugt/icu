@@ -3456,6 +3456,8 @@ source/extra/uconv/samples/utf8/turkish.txt svneol=native#text/plain%3Bcharset%3
 source/extra/uconv/samples/utf8/utf-8-demo.txt svneol=native#text/plain%3Bcharset%3Dutf-8
 source/extra/uconv/uconv.vcxproj -text
 source/i18n/regexcst.txt svneol=native#text/plain
+source/i18n/visibledigits.cpp -text
+source/i18n/visibledigits.h -text
 source/samples/break/break.vcxproj -text
 source/samples/break/readme.txt svneol=native#text/plain
 source/samples/cal/readme.txt svneol=native#text/plain
