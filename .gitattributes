@@ -185,7 +185,6 @@ main/classes/core/src/com/ibm/icu/impl/Differ.java svneol=native#text/plain%3Bch
 main/classes/core/src/com/ibm/icu/impl/DigitGrouping.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/classes/core/src/com/ibm/icu/impl/DigitInterval.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/classes/core/src/com/ibm/icu/impl/DontCareFieldPosition.java svneol=native#text/plain%3Bcharset%3Dutf-8
-main/classes/core/src/com/ibm/icu/impl/Dumb.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/classes/core/src/com/ibm/icu/impl/FixedPrecision.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/classes/core/src/com/ibm/icu/impl/FreezableBase.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/classes/core/src/com/ibm/icu/impl/Grego.java svneol=native#text/plain%3Bcharset%3Dutf-8
