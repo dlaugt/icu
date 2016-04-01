@@ -710,6 +710,7 @@ main/tests/core/src/com/ibm/icu/dev/test/compression/ExhaustiveTest.java svneol=
 main/tests/core/src/com/ibm/icu/dev/test/compression/package.html svneol=native#text/html
 main/tests/core/src/com/ibm/icu/dev/test/duration/DataReadWriteTest.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/tests/core/src/com/ibm/icu/dev/test/duration/ICUDurationTest.java svneol=native#text/plain%3Bcharset%3Dutf-8
+main/tests/core/src/com/ibm/icu/dev/test/duration/LanguageTestFmwk.java -text
 main/tests/core/src/com/ibm/icu/dev/test/duration/PeriodBuilderFactoryTest.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/tests/core/src/com/ibm/icu/dev/test/duration/PeriodTest.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/tests/core/src/com/ibm/icu/dev/test/duration/RegressionTest.java svneol=native#text/plain%3Bcharset%3Dutf-8
@@ -776,6 +777,7 @@ main/tests/core/src/com/ibm/icu/dev/test/format/NumberFormatSerialTestData.java 
 main/tests/core/src/com/ibm/icu/dev/test/format/NumberFormatSpecificationTest.java svneol=native#text/plain%3Bcharset%3Dutf-8%3Bcharset%3Dutf-8
 main/tests/core/src/com/ibm/icu/dev/test/format/NumberFormatTest.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/tests/core/src/com/ibm/icu/dev/test/format/NumberFormatTestCases.txt svneol=native#text/plain%3Bcharset%3Dutf-8
+main/tests/core/src/com/ibm/icu/dev/test/format/NumberFormatTestData.java -text
 main/tests/core/src/com/ibm/icu/dev/test/format/NumberRegression.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/tests/core/src/com/ibm/icu/dev/test/format/PluralFormatTest.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/tests/core/src/com/ibm/icu/dev/test/format/PluralFormatUnitTest.java svneol=native#text/plain%3Bcharset%3Dutf-8
