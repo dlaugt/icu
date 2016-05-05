@@ -1237,7 +1237,6 @@ main/tests/framework/src/com/ibm/icu/dev/test/TestBoilerplate.java svneol=native
 main/tests/framework/src/com/ibm/icu/dev/test/TestDataModule.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/tests/framework/src/com/ibm/icu/dev/test/TestFmwk.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/tests/framework/src/com/ibm/icu/dev/test/TestLog.java svneol=native#text/plain%3Bcharset%3Dutf-8
-main/tests/framework/src/com/ibm/icu/dev/test/TestLogWriter.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/tests/framework/src/com/ibm/icu/dev/test/TestUtil.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/tests/framework/src/com/ibm/icu/dev/test/UTF16Util.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/tests/framework/src/com/ibm/icu/dev/test/package.html svneol=native#text/html
