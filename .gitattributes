@@ -1293,7 +1293,6 @@ main/tests/translit/src/com/ibm/icu/dev/test/translit/WriteCharts.java svneol=na
 main/tests/translit/src/com/ibm/icu/dev/test/translit/langtagRegex.txt svneol=native#text/plain
 main/tests/translit/src/com/ibm/icu/dev/test/translit/package.html svneol=native#text/html
 main/tests/translit/src/com/ibm/icu/dev/test/util/DumpBNF.java -text
-main/tests/translit/src/com/ibm/icu/dev/test/util/DumpBagFormatter.java -text
 main/tests/translit/src/com/ibm/icu/dev/test/util/TestUtilities.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/tests/translit/src/com/ibm/icu/dev/util/BNF.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/tests/translit/src/com/ibm/icu/dev/util/BagFormatter.java svneol=native#text/plain%3Bcharset%3Dutf-8
