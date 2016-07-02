@@ -3546,6 +3546,7 @@ source/extra/uconv/samples/utf8/simplechinese.txt svneol=native#text/plain%3Bcha
 source/extra/uconv/samples/utf8/turkish.txt svneol=native#text/plain%3Bcharset%3Dutf-8
 source/extra/uconv/samples/utf8/utf-8-demo.txt svneol=native#text/plain%3Bcharset%3Dutf-8
 source/extra/uconv/uconv.vcxproj -text
+source/i18n/dt_impl.h -text
 source/i18n/regexcst.txt svneol=native#text/plain
 source/samples/break/break.vcxproj -text
 source/samples/break/readme.txt svneol=native#text/plain
