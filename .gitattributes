@@ -1224,6 +1224,7 @@ main/tests/core/src/com/ibm/icu/dev/test/util/TrieTest.java svneol=native#text/p
 main/tests/core/src/com/ibm/icu/dev/test/util/ULocaleTest.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/tests/core/src/com/ibm/icu/dev/test/util/UtilityTest.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/tests/core/src/com/ibm/icu/dev/test/util/VersionInfoTest.java svneol=native#text/plain%3Bcharset%3Dutf-8
+main/tests/core/src/com/ibm/icu/text/DigitListTest.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/tests/framework/src/com/ibm/icu/dev/test/AbstractTestLog.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/tests/framework/src/com/ibm/icu/dev/test/ModuleTest.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/tests/framework/src/com/ibm/icu/dev/test/ResourceModule.java svneol=native#text/plain%3Bcharset%3Dutf-8
