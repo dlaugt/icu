@@ -821,6 +821,7 @@ main/tests/core/src/com/ibm/icu/dev/test/normalizer/UTS46Test.java svneol=native
 main/tests/core/src/com/ibm/icu/dev/test/normalizer/UnicodeNormalizer.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/tests/core/src/com/ibm/icu/dev/test/normalizer/UnicodeNormalizerConformanceTest.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/tests/core/src/com/ibm/icu/dev/test/normalizer/package.html svneol=native#text/html
+main/tests/core/src/com/ibm/icu/dev/test/rbbi/AbstractBreakIteratorTests.java -text
 main/tests/core/src/com/ibm/icu/dev/test/rbbi/BreakIteratorRegTest.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/tests/core/src/com/ibm/icu/dev/test/rbbi/BreakIteratorRules_en_US_TEST.java svneol=native#text/plain%3Bcharset%3Dutf-8
 main/tests/core/src/com/ibm/icu/dev/test/rbbi/BreakIteratorTest.java svneol=native#text/plain%3Bcharset%3Dutf-8
