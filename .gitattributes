@@ -5781,6 +5781,7 @@ icu4j/main/classes/core/src/com/ibm/icu/text/DateFormatSymbols.java svneol=nativ
 icu4j/main/classes/core/src/com/ibm/icu/text/DateIntervalFormat.java svneol=native#text/plain%3Bcharset%3Dutf-8
 icu4j/main/classes/core/src/com/ibm/icu/text/DateIntervalInfo.java svneol=native#text/plain%3Bcharset%3Dutf-8
 icu4j/main/classes/core/src/com/ibm/icu/text/DateTimePatternGenerator.java svneol=native#text/plain%3Bcharset%3Dutf-8
+icu4j/main/classes/core/src/com/ibm/icu/text/DecimalFormat.java svneol=native#text/plain%3Bcharset%3Dutf-8
 icu4j/main/classes/core/src/com/ibm/icu/text/DecimalFormatSymbols.java svneol=native#text/plain%3Bcharset%3Dutf-8
 icu4j/main/classes/core/src/com/ibm/icu/text/DecimalFormat_ICU58.java svneol=native#text/plain%3Bcharset%3Dutf-8
 icu4j/main/classes/core/src/com/ibm/icu/text/DictionaryBreakEngine.java svneol=native#text/plain%3Bcharset%3Dutf-8
