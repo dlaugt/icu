@@ -5701,7 +5701,6 @@ icu4j/main/classes/core/src/com/ibm/icu/impl/locale/LocaleValidityChecker.java s
 icu4j/main/classes/core/src/com/ibm/icu/impl/locale/ParseStatus.java svneol=native#text/plain%3Bcharset%3Dutf-8
 icu4j/main/classes/core/src/com/ibm/icu/impl/locale/StringTokenIterator.java svneol=native#text/plain%3Bcharset%3Dutf-8
 icu4j/main/classes/core/src/com/ibm/icu/impl/locale/UnicodeLocaleExtension.java svneol=native#text/plain%3Bcharset%3Dutf-8
-icu4j/main/classes/core/src/com/ibm/icu/impl/number/DoubleSidedStringBuilder.java svneol=native#text/plain%3Bcharset%3Dutf-8
 icu4j/main/classes/core/src/com/ibm/icu/impl/number/Endpoint.java svneol=native#text/plain%3Bcharset%3Dutf-8
 icu4j/main/classes/core/src/com/ibm/icu/impl/number/Exportable.java svneol=native#text/plain%3Bcharset%3Dutf-8
 icu4j/main/classes/core/src/com/ibm/icu/impl/number/Format.java svneol=native#text/plain%3Bcharset%3Dutf-8
@@ -5711,6 +5710,7 @@ icu4j/main/classes/core/src/com/ibm/icu/impl/number/FormatQuantity2.java svneol=
 icu4j/main/classes/core/src/com/ibm/icu/impl/number/LiteralString.java svneol=native#text/plain%3Bcharset%3Dutf-8
 icu4j/main/classes/core/src/com/ibm/icu/impl/number/Modifier.java svneol=native#text/plain%3Bcharset%3Dutf-8
 icu4j/main/classes/core/src/com/ibm/icu/impl/number/ModifierHolder.java svneol=native#text/plain%3Bcharset%3Dutf-8
+icu4j/main/classes/core/src/com/ibm/icu/impl/number/NumberStringBuilder.java svneol=native#text/plain%3Bcharset%3Dutf-8
 icu4j/main/classes/core/src/com/ibm/icu/impl/number/PNAffixGenerator.java svneol=native#text/plain%3Bcharset%3Dutf-8
 icu4j/main/classes/core/src/com/ibm/icu/impl/number/Parse.java svneol=native#text/plain%3Bcharset%3Dutf-8
 icu4j/main/classes/core/src/com/ibm/icu/impl/number/PatternString.java svneol=native#text/plain%3Bcharset%3Dutf-8
@@ -5728,9 +5728,10 @@ icu4j/main/classes/core/src/com/ibm/icu/impl/number/formatters/PositiveNegativeA
 icu4j/main/classes/core/src/com/ibm/icu/impl/number/formatters/RangeFormat.java svneol=native#text/plain%3Bcharset%3Dutf-8
 icu4j/main/classes/core/src/com/ibm/icu/impl/number/formatters/ScientificFormat.java svneol=native#text/plain%3Bcharset%3Dutf-8
 icu4j/main/classes/core/src/com/ibm/icu/impl/number/formatters/StrongAffixFormat.java svneol=native#text/plain%3Bcharset%3Dutf-8
-icu4j/main/classes/core/src/com/ibm/icu/impl/number/modifiers/AffixModifier.java svneol=native#text/plain%3Bcharset%3Dutf-8
 icu4j/main/classes/core/src/com/ibm/icu/impl/number/modifiers/ConstantAffixModifier.java svneol=native#text/plain%3Bcharset%3Dutf-8
+icu4j/main/classes/core/src/com/ibm/icu/impl/number/modifiers/ConstantMultiFieldModifier.java svneol=native#text/plain%3Bcharset%3Dutf-8
 icu4j/main/classes/core/src/com/ibm/icu/impl/number/modifiers/GeneralPluralModifier.java svneol=native#text/plain%3Bcharset%3Dutf-8
+icu4j/main/classes/core/src/com/ibm/icu/impl/number/modifiers/PositiveNegativeAffixModifier.java svneol=native#text/plain%3Bcharset%3Dutf-8
 icu4j/main/classes/core/src/com/ibm/icu/impl/number/modifiers/SimpleModifier.java svneol=native#text/plain%3Bcharset%3Dutf-8
 icu4j/main/classes/core/src/com/ibm/icu/lang/CharSequences.java svneol=native#text/plain%3Bcharset%3Dutf-8
 icu4j/main/classes/core/src/com/ibm/icu/lang/UCharacter.java svneol=native#text/plain%3Bcharset%3Dutf-8
