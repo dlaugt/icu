@@ -6166,6 +6166,7 @@ icu4j/main/tests/core/src/com/ibm/icu/dev/test/format/ListFormatterTest.java svn
 icu4j/main/tests/core/src/com/ibm/icu/dev/test/format/MeasureUnitTest.java svneol=native#text/plain%3Bcharset%3Dutf-8
 icu4j/main/tests/core/src/com/ibm/icu/dev/test/format/MessagePatternUtilTest.java svneol=native#text/plain%3Bcharset%3Dutf-8
 icu4j/main/tests/core/src/com/ibm/icu/dev/test/format/MessageRegressionTest.java svneol=native#text/plain%3Bcharset%3Dutf-8
+icu4j/main/tests/core/src/com/ibm/icu/dev/test/format/NumberFormatDataDrivenTest.java svneol=native#text/plain%3Bcharset%3Dutf-8
 icu4j/main/tests/core/src/com/ibm/icu/dev/test/format/NumberFormatRegistrationTest.java svneol=native#text/plain%3Bcharset%3Dutf-8
 icu4j/main/tests/core/src/com/ibm/icu/dev/test/format/NumberFormatRegressionTest.java svneol=native#text/plain%3Bcharset%3Dutf-8
 icu4j/main/tests/core/src/com/ibm/icu/dev/test/format/NumberFormatRoundTripTest.java svneol=native#text/plain%3Bcharset%3Dutf-8
