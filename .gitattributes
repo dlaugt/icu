@@ -5708,6 +5708,7 @@ icu4j/main/classes/core/src/com/ibm/icu/impl/number/FormatQuantity.java svneol=n
 icu4j/main/classes/core/src/com/ibm/icu/impl/number/FormatQuantity1.java svneol=native#text/plain%3Bcharset%3Dutf-8
 icu4j/main/classes/core/src/com/ibm/icu/impl/number/FormatQuantity2.java svneol=native#text/plain%3Bcharset%3Dutf-8
 icu4j/main/classes/core/src/com/ibm/icu/impl/number/FormatQuantity3.java svneol=native#text/plain%3Bcharset%3Dutf-8
+icu4j/main/classes/core/src/com/ibm/icu/impl/number/FormatQuantity4.java svneol=native#text/plain%3Bcharset%3Dutf-8
 icu4j/main/classes/core/src/com/ibm/icu/impl/number/FormatQuantityBCD.java svneol=native#text/plain%3Bcharset%3Dutf-8
 icu4j/main/classes/core/src/com/ibm/icu/impl/number/FormatQuantitySelector.java svneol=native#text/plain%3Bcharset%3Dutf-8
 icu4j/main/classes/core/src/com/ibm/icu/impl/number/LiteralString.java svneol=native#text/plain%3Bcharset%3Dutf-8
