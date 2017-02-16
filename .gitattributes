@@ -6160,7 +6160,6 @@ icu4j/main/tests/core/src/com/ibm/icu/dev/test/format/DateFormatRoundTripTest.ja
 icu4j/main/tests/core/src/com/ibm/icu/dev/test/format/DateFormatTest.java svneol=native#text/plain%3Bcharset%3Dutf-8
 icu4j/main/tests/core/src/com/ibm/icu/dev/test/format/DateIntervalFormatTest.java svneol=native#text/plain%3Bcharset%3Dutf-8
 icu4j/main/tests/core/src/com/ibm/icu/dev/test/format/DateTimeGeneratorTest.java svneol=native#text/plain%3Bcharset%3Dutf-8
-icu4j/main/tests/core/src/com/ibm/icu/dev/test/format/FormatQuantityTest.java svneol=native#text/plain%3Bcharset%3Dutf-8
 icu4j/main/tests/core/src/com/ibm/icu/dev/test/format/IntlTestDateFormat.java svneol=native#text/plain%3Bcharset%3Dutf-8
 icu4j/main/tests/core/src/com/ibm/icu/dev/test/format/IntlTestDateFormatAPI.java svneol=native#text/plain%3Bcharset%3Dutf-8
 icu4j/main/tests/core/src/com/ibm/icu/dev/test/format/IntlTestDateFormatAPIC.java svneol=native#text/plain%3Bcharset%3Dutf-8
@@ -6234,6 +6233,9 @@ icu4j/main/tests/core/src/com/ibm/icu/dev/test/normalizer/UTS46Test.java svneol=
 icu4j/main/tests/core/src/com/ibm/icu/dev/test/normalizer/UnicodeNormalizer.java svneol=native#text/plain%3Bcharset%3Dutf-8
 icu4j/main/tests/core/src/com/ibm/icu/dev/test/normalizer/UnicodeNormalizerConformanceTest.java svneol=native#text/plain%3Bcharset%3Dutf-8
 icu4j/main/tests/core/src/com/ibm/icu/dev/test/normalizer/package.html svneol=native#text/html
+icu4j/main/tests/core/src/com/ibm/icu/dev/test/numbers/FormatQuantityTest.java svneol=native#text/plain%3Bcharset%3Dutf-8
+icu4j/main/tests/core/src/com/ibm/icu/dev/test/numbers/LiteralStringTest.java svneol=native#text/plain%3Bcharset%3Dutf-8
+icu4j/main/tests/core/src/com/ibm/icu/dev/test/numbers/NumberStringBuilderTest.java svneol=native#text/plain%3Bcharset%3Dutf-8
 icu4j/main/tests/core/src/com/ibm/icu/dev/test/numbers/PatternStringTest.java svneol=native#text/plain%3Bcharset%3Dutf-8
 icu4j/main/tests/core/src/com/ibm/icu/dev/test/numbers/PropertiesTest.java svneol=native#text/plain%3Bcharset%3Dutf-8
 icu4j/main/tests/core/src/com/ibm/icu/dev/test/rbbi/AbstractBreakIteratorTests.java svneol=native#text/plain%3Bcharset%3Dutf-8
