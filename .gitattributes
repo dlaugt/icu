@@ -5739,7 +5739,7 @@ icu4j/main/classes/core/src/com/ibm/icu/impl/number/modifiers/ConstantMultiField
 icu4j/main/classes/core/src/com/ibm/icu/impl/number/modifiers/GeneralPluralModifier.java svneol=native#text/plain%3Bcharset%3Dutf-8
 icu4j/main/classes/core/src/com/ibm/icu/impl/number/modifiers/PositiveNegativeAffixModifier.java svneol=native#text/plain%3Bcharset%3Dutf-8
 icu4j/main/classes/core/src/com/ibm/icu/impl/number/modifiers/SimpleModifier.java svneol=native#text/plain%3Bcharset%3Dutf-8
-icu4j/main/classes/core/src/com/ibm/icu/impl/number/rounders/IntervalRounder.java svneol=native#text/plain%3Bcharset%3Dutf-8
+icu4j/main/classes/core/src/com/ibm/icu/impl/number/rounders/IncrementRounder.java svneol=native#text/plain%3Bcharset%3Dutf-8
 icu4j/main/classes/core/src/com/ibm/icu/impl/number/rounders/MagnitudeRounder.java svneol=native#text/plain%3Bcharset%3Dutf-8
 icu4j/main/classes/core/src/com/ibm/icu/impl/number/rounders/NoRounder.java svneol=native#text/plain%3Bcharset%3Dutf-8
 icu4j/main/classes/core/src/com/ibm/icu/impl/number/rounders/SignificantDigitsRounder.java svneol=native#text/plain%3Bcharset%3Dutf-8
