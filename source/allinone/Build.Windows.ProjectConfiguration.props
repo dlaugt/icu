@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Copyright (C) 2016 and later: Unicode, Inc. and others. License & terms of use: http://www.unicode.org/copyright.html -->
-<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <!-- This file is used to set default configuration options for all non-UWP Visual Studio projects. -->
   <!-- These are the default project configurations for building. -->
   <ItemGroup Label="ProjectConfigurations">
@@ -32,7 +32,7 @@
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <PropertyGroup>
-    <!-- We need to explicitly target Windows 7. -->
+    <!-- We need to explicitly set the target version to Windows 7. -->
     <Win32_WinNTVersion>0x0601</Win32_WinNTVersion>
   </PropertyGroup>
   <!-- Options that are common to *all* configurations for *all* projects. -->
@@ -42,6 +42,7 @@
       <SuppressStartupBanner>true</SuppressStartupBanner>
     </Midl>
     <ClCompile>
+      <!-- Note: These preprocessor defines are for *all* configurations for *all* projects.  -->
       <PreprocessorDefinitions>
         WINVER=$(Win32_WinNTVersion);
         _WIN32_WINNT=$(Win32_WinNTVersion);
@@ -49,6 +50,7 @@
         %(PreprocessorDefinitions)
       </PreprocessorDefinitions>
       <StringPooling>true</StringPooling>
+      <!-- We always want to treat wchar_t as a "real" C++ type, instead of a typedef. -->
       <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <AdditionalOptions>/utf-8 %(AdditionalOptions)</AdditionalOptions>
