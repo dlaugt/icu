@@ -2,12 +2,14 @@
 /bin32uwp
 /bin64
 /bin64uwp
+/binARMUWP
 /commondata
 /include
 /lib
 /lib32uwp
 /lib64
 /lib64uwp
+/libARMuwp
 source/Doxyfile
 source/Makefile
 source/README
@@ -33,6 +35,7 @@ source/common/Generated[!!-~]Files
 source/common/Makefile
 source/common/Makefile.local
 source/common/Release
+source/common/arm
 source/common/common.res
 source/common/common.vcproj.*.*.user
 source/common/debug
@@ -113,6 +116,7 @@ source/i18n/Generated[!!-~]Files
 source/i18n/Makefile
 source/i18n/Makefile.local
 source/i18n/Release
+source/i18n/arm
 source/i18n/debug
 source/i18n/i18n.res
 source/i18n/i18n.vcproj.*.*.user
