@@ -23,7 +23,7 @@
   </ItemGroup>
   <PropertyGroup>
     <!-- This is the version of the MSVC tool-set to use. -->
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v140</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup>
     <!-- This is the default SDK target. -->
@@ -43,17 +43,19 @@
     </Midl>
     <ClCompile>
       <!-- Note: These preprocessor defines are for *all* configurations for *all* projects.  -->
+      <!-- Note: See ticket #5750 for the macro '_CRT_SECURE_NO_DEPRECATE'. -->
       <PreprocessorDefinitions>
         WINVER=$(Win32_WinNTVersion);
         _WIN32_WINNT=$(Win32_WinNTVersion);
         _CRT_SECURE_NO_DEPRECATE;
         %(PreprocessorDefinitions)
       </PreprocessorDefinitions>
-      <StringPooling>true</StringPooling>
       <!-- We always want to treat wchar_t as a "real" C++ type, instead of a typedef. -->
       <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
       <SuppressStartupBanner>true</SuppressStartupBanner>
+      <!-- Set the source encoding and runtime encoding to UTF-8 by default. -->
       <AdditionalOptions>/utf-8 %(AdditionalOptions)</AdditionalOptions>
+      <!-- Enable parallel compilation for faster builds. -->
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <ResourceCompile>
@@ -70,6 +72,7 @@
     </Midl>
     <ClCompile>
       <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <StringPooling>true</StringPooling>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -105,6 +108,9 @@
     <ClCompile>
       <PreprocessorDefinitions>WIN32;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
+    <Link>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
   </ItemDefinitionGroup>
   <!-- Options that are common to all 64-bit configurations for *all* projects. -->
   <ItemDefinitionGroup Condition="'$(Platform)'=='x64'">
