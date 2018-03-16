@@ -5274,6 +5274,7 @@ icu4c/source/test/perf/normperf/dtfmtrtperf.cpp svneol=native#text/plain%3Bchars
 icu4c/source/test/perf/normperf/dtfmtrtperf.h svneol=native#text/plain%3Bcharset%3Dutf-8
 icu4c/source/test/perf/normperf/normperf.cpp svneol=native#text/plain%3Bcharset%3Dutf-8
 icu4c/source/test/perf/normperf/normperf.h svneol=native#text/plain%3Bcharset%3Dutf-8
+icu4c/source/test/perf/normperf/simplenormperf.cpp svneol=native#text/plain%3Bcharset%3Dutf-8
 icu4c/source/test/perf/strsrchperf/strsrchperf.cpp svneol=native#text/plain%3Bcharset%3Dutf-8
 icu4c/source/test/perf/strsrchperf/strsrchperf.h svneol=native#text/plain%3Bcharset%3Dutf-8
 icu4c/source/test/perf/ubrkperf/ubrkperf.cpp svneol=native#text/plain%3Bcharset%3Dutf-8
