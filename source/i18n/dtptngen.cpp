@@ -18,6 +18,7 @@
 #include "unicode/decimfmt.h"
 #include "unicode/dtfmtsym.h"
 #include "unicode/dtptngen.h"
+#include "unicode/localpointer.h"
 #include "unicode/simpleformatter.h"
 #include "unicode/smpdtfmt.h"
 #include "unicode/udat.h"
@@ -311,40 +312,39 @@ DateTimePatternGenerator::createInstance(const Locale& locale, UErrorCode& statu
 
 DateTimePatternGenerator*  U_EXPORT2
 DateTimePatternGenerator::createEmptyInstance(UErrorCode& status) {
-    DateTimePatternGenerator *result = new DateTimePatternGenerator(status);
-    if (result == NULL) {
-        status = U_MEMORY_ALLOCATION_ERROR;
-    }
     if (U_FAILURE(status)) {
-        delete result;
-        result = NULL;
+        return NULL;
     }
-    return result;
+    LocalPointer<DateTimePatternGenerator> result(
+            new DateTimePatternGenerator(status), status);
+    return U_SUCCESS(status) ? result.orphan() : NULL;
 }
 
 DateTimePatternGenerator::DateTimePatternGenerator(UErrorCode &status) :
     skipMatcher(NULL),
-    fAvailableFormatKeyHash(NULL)
+    fAvailableFormatKeyHash(NULL),
+    errorCode_(U_ZERO_ERROR)
 {
     fp = new FormatParser();
     dtMatcher = new DateTimeMatcher();
     distanceInfo = new DistanceInfo();
     patternMap = new PatternMap();
     if (fp == NULL || dtMatcher == NULL || distanceInfo == NULL || patternMap == NULL) {
-        status = U_MEMORY_ALLOCATION_ERROR;
+        errorCode_ = status = U_MEMORY_ALLOCATION_ERROR;
     }
 }
 
 DateTimePatternGenerator::DateTimePatternGenerator(const Locale& locale, UErrorCode &status) :
     skipMatcher(NULL),
-    fAvailableFormatKeyHash(NULL)
+    fAvailableFormatKeyHash(NULL),
+    errorCode_(U_ZERO_ERROR)
 {
     fp = new FormatParser();
     dtMatcher = new DateTimeMatcher();
     distanceInfo = new DistanceInfo();
     patternMap = new PatternMap();
     if (fp == NULL || dtMatcher == NULL || distanceInfo == NULL || patternMap == NULL) {
-        status = U_MEMORY_ALLOCATION_ERROR;
+        errorCode_ = status = U_MEMORY_ALLOCATION_ERROR;
     }
     else {
         initData(locale, status);
@@ -354,12 +354,16 @@ DateTimePatternGenerator::DateTimePatternGenerator(const Locale& locale, UErrorC
 DateTimePatternGenerator::DateTimePatternGenerator(const DateTimePatternGenerator& other) :
     UObject(),
     skipMatcher(NULL),
-    fAvailableFormatKeyHash(NULL)
+    fAvailableFormatKeyHash(NULL),
+    errorCode_(U_ZERO_ERROR)
 {
     fp = new FormatParser();
     dtMatcher = new DateTimeMatcher();
     distanceInfo = new DistanceInfo();
     patternMap = new PatternMap();
+    if (fp == NULL || dtMatcher == NULL || distanceInfo == NULL || patternMap == NULL) {
+        errorCode_ = U_MEMORY_ALLOCATION_ERROR;
+    }
     *this=other;
 }
 
@@ -369,6 +373,7 @@ DateTimePatternGenerator::operator=(const DateTimePatternGenerator& other) {
     if (&other == this) {
         return *this;
     }
+    errorCode_ = other.errorCode_;
     pLocale = other.pLocale;
     fDefaultHourFormatChar = other.fDefaultHourFormatChar;
     *fp = *(other.fp);
@@ -385,6 +390,8 @@ DateTimePatternGenerator::operator=(const DateTimePatternGenerator& other) {
     }
     else {
         skipMatcher = new DateTimeMatcher(*other.skipMatcher);
+        errorCode_ = U_MEMORY_ALLOCATION_ERROR;
+        return *this;
     }
     for (int32_t i=0; i< UDATPG_FIELD_COUNT; ++i ) {
         appendItemFormats[i] = other.appendItemFormats[i];
@@ -394,9 +401,8 @@ DateTimePatternGenerator::operator=(const DateTimePatternGenerator& other) {
             fieldDisplayNames[i][j].getTerminatedBuffer(); // NUL-terminate for the C API.
         }
     }
-    UErrorCode status = U_ZERO_ERROR;
-    patternMap->copyFrom(*other.patternMap, status);
-    copyHashtable(other.fAvailableFormatKeyHash, status);
+    patternMap->copyFrom(*other.patternMap, errorCode_);
+    copyHashtable(other.fAvailableFormatKeyHash, errorCode_);
     return *this;
 }
 
@@ -483,6 +489,7 @@ DateTimePatternGenerator::initData(const Locale& locale, UErrorCode &status) {
     setDecimalSymbols(locale, status);
     umtx_initOnce(initOnce, loadAllowedHourFormatsData, status);
     getAllowedHourFormats(locale, status);
+    errorCode_ = status;
 } // DateTimePatternGenerator::initData
 
 namespace {
@@ -556,7 +563,10 @@ U_CFUNC void U_CALLCONV DateTimePatternGenerator::loadAllowedHourFormatsData(UEr
     if (U_FAILURE(status)) { return; }
     localeToAllowedHourFormatsMap = uhash_open(
         uhash_hashChars, uhash_compareChars, NULL, &status);
+    if (U_FAILURE(status)) { return; }
+
     uhash_setValueDeleter(localeToAllowedHourFormatsMap, deleteAllowedHourFormats);
+
     LocalUResourceBundlePointer rb(ures_openDirect(NULL, "supplementalData", &status));
 
     AllowedHourFormatsSink sink;
@@ -589,9 +599,9 @@ void DateTimePatternGenerator::getAllowedHourFormats(const Locale &locale, UErro
     const char *language = maxLocale.getLanguage();
 
     CharString langCountry;
-    langCountry.append(language, uprv_strlen(language), status);
+    langCountry.append(language, static_cast<int32_t>(uprv_strlen(language)), status);
     langCountry.append('_', status);
-    langCountry.append(country, uprv_strlen(country), status);
+    langCountry.append(country, static_cast<int32_t>(uprv_strlen(country)), status);
 
     int32_t *allowedFormats;
     allowedFormats = (int32_t *)uhash_get(localeToAllowedHourFormatsMap, langCountry.data());
@@ -754,6 +764,7 @@ DateTimePatternGenerator::getCalendarTypeToUse(const Locale& locale, CharString&
             NULL,
             FALSE,
             &err);
+        if (U_FAILURE(err)) { return; }
         localeWithCalendarKey[ULOC_LOCALE_IDENTIFIER_CAPACITY-1] = 0; // ensure null termination
         // now get the calendar key value from that locale
         char calendarType[ULOC_KEYWORDS_CAPACITY];
@@ -763,7 +774,8 @@ DateTimePatternGenerator::getCalendarTypeToUse(const Locale& locale, CharString&
             calendarType,
             ULOC_KEYWORDS_CAPACITY,
             &err);
-        if (U_SUCCESS(err) && calendarTypeLen < ULOC_KEYWORDS_CAPACITY) {
+        if (U_FAILURE(err)) { return; }
+        if (calendarTypeLen < ULOC_KEYWORDS_CAPACITY) {
             destination.clear().append(calendarType, -1, err);
             if (U_FAILURE(err)) { return; }
         }
@@ -966,12 +978,13 @@ DateTimePatternGenerator::addCLDRData(const Locale& locale, UErrorCode& errorCod
 
 void
 DateTimePatternGenerator::initHashtable(UErrorCode& err) {
+    if (U_FAILURE(err)) { return; }
     if (fAvailableFormatKeyHash!=NULL) {
         return;
     }
-    if ((fAvailableFormatKeyHash = new Hashtable(FALSE, err))==NULL) {
-        err=U_MEMORY_ALLOCATION_ERROR;
-        return;
+    LocalPointer<Hashtable> hash(new Hashtable(FALSE, err), err);
+    if (U_SUCCESS(err)) {
+        fAvailableFormatKeyHash = hash.orphan();
     }
 }
 
@@ -1028,6 +1041,13 @@ DateTimePatternGenerator::getBestPattern(const UnicodeString& patternForm, UErro
 
 UnicodeString
 DateTimePatternGenerator::getBestPattern(const UnicodeString& patternForm, UDateTimePatternMatchOptions options, UErrorCode& status) {
+    if (U_FAILURE(status)) {
+        return UnicodeString();
+    }
+    if (U_FAILURE(errorCode_)) {
+        status = errorCode_;
+        return UnicodeString();
+    }
     const UnicodeString *bestPattern=NULL;
     UnicodeString dtFormat;
     UnicodeString resultPattern;
@@ -1045,15 +1065,22 @@ DateTimePatternGenerator::getBestPattern(const UnicodeString& patternForm, UDate
     resultPattern.remove();
     dtMatcher->set(patternFormMapped, fp);
     const PtnSkeleton* specifiedSkeleton=NULL;
-    bestPattern=getBestRaw(*dtMatcher, -1, distanceInfo, &specifiedSkeleton);
+    bestPattern=getBestRaw(*dtMatcher, -1, distanceInfo, status, &specifiedSkeleton);
+    if (U_FAILURE(status)) {
+        return UnicodeString();
+    }
+
     if ( distanceInfo->missingFieldMask==0 && distanceInfo->extraFieldMask==0 ) {
         resultPattern = adjustFieldTypes(*bestPattern, specifiedSkeleton, flags, options);
 
         return resultPattern;
     }
     int32_t neededFields = dtMatcher->getFieldMask();
-    UnicodeString datePattern=getBestAppending(neededFields & dateMask, flags, options);
-    UnicodeString timePattern=getBestAppending(neededFields & timeMask, flags, options);
+    UnicodeString datePattern=getBestAppending(neededFields & dateMask, flags, status, options);
+    UnicodeString timePattern=getBestAppending(neededFields & timeMask, flags, status, options);
+    if (U_FAILURE(status)) {
+        return UnicodeString();
+    }
     if (datePattern.length()==0) {
         if (timePattern.length()==0) {
             resultPattern.remove();
@@ -1159,7 +1186,14 @@ UnicodeString
 DateTimePatternGenerator::replaceFieldTypes(const UnicodeString& pattern,
                                             const UnicodeString& skeleton,
                                             UDateTimePatternMatchOptions options,
-                                            UErrorCode& /*status*/) {
+                                            UErrorCode& status) {
+    if (U_FAILURE(status)) {
+        return UnicodeString();
+    }
+    if (U_FAILURE(errorCode_)) {
+        status = errorCode_;
+        return UnicodeString();
+    }
     dtMatcher->set(skeleton, fp);
     UnicodeString result = adjustFieldTypes(pattern, NULL, kDTPGNoFlags, options);
     return result;
@@ -1204,17 +1238,20 @@ DateTimePatternGenerator::getDateTimeFormat() const {
 
 void
 DateTimePatternGenerator::setDateTimeFromCalendar(const Locale& locale, UErrorCode& status) {
+    if (U_FAILURE(status)) { return; }
+
     const UChar *resStr;
     int32_t resStrLen = 0;
 
-    Calendar* fCalendar = Calendar::createInstance(locale, status);
+    LocalPointer<Calendar> fCalendar(Calendar::createInstance(locale, status), status);
     if (U_FAILURE(status)) { return; }
 
     LocalUResourceBundlePointer calData(ures_open(NULL, locale.getBaseName(), &status));
     ures_getByKey(calData.getAlias(), DT_DateTimeCalendarTag, calData.getAlias(), &status);
+    if (U_FAILURE(status)) { return; }
 
     LocalUResourceBundlePointer dateTimePatterns;
-    if (fCalendar != NULL && fCalendar->getType() != NULL && *fCalendar->getType() != '\0'
+    if (fCalendar->getType() != NULL && *fCalendar->getType() != '\0'
             && uprv_strcmp(fCalendar->getType(), DT_DateTimeGregorianTag) != 0) {
         dateTimePatterns.adoptInstead(ures_getByKeyWithFallback(calData.getAlias(), fCalendar->getType(),
                                                                 NULL, &status));
@@ -1238,8 +1275,6 @@ DateTimePatternGenerator::setDateTimeFromCalendar(const Locale& locale, UErrorCo
     }
     resStr = ures_getStringByIndex(dateTimePatterns.getAlias(), (int32_t)DateFormat::kDateTime, &resStrLen, &status);
     setDateTimeFormat(UnicodeString(TRUE, resStr, resStrLen));
-
-    delete fCalendar;
 }
 
 void
@@ -1259,6 +1294,11 @@ DateTimePatternGenerator::addPattern(
     UnicodeString &conflictingPattern,
     UErrorCode& status)
 {
+    if (U_FAILURE(errorCode_)) {
+        status = errorCode_;
+        return UDATPG_NO_CONFLICT;
+    }
+
     return addPatternWithSkeleton(pattern, NULL, override, conflictingPattern, status);
 }
 
@@ -1280,6 +1320,10 @@ DateTimePatternGenerator::addPatternWithSkeleton(
     UnicodeString& conflictingPattern,
     UErrorCode& status)
 {
+    if (U_FAILURE(errorCode_)) {
+        status = errorCode_;
+        return UDATPG_NO_CONFLICT;
+    }
 
     UnicodeString basePattern;
     PtnSkeleton   skeleton;
@@ -1369,13 +1413,16 @@ const UnicodeString*
 DateTimePatternGenerator::getBestRaw(DateTimeMatcher& source,
                                      int32_t includeMask,
                                      DistanceInfo* missingFields,
+                                     UErrorCode &status,
                                      const PtnSkeleton** specifiedSkeletonPtr) {
     int32_t bestDistance = 0x7fffffff;
     DistanceInfo tempInfo;
     const UnicodeString *bestPattern=NULL;
     const PtnSkeleton* specifiedSkeleton=NULL;
 
-    PatternMapIterator it;
+    PatternMapIterator it(status);
+    if (U_FAILURE(status)) { return NULL; }
+
     for (it.set(*patternMap); it.hasNext(); ) {
         DateTimeMatcher trial = it.next();
         if (trial.equals(skipMatcher)) {
@@ -1496,14 +1543,21 @@ DateTimePatternGenerator::adjustFieldTypes(const UnicodeString& pattern,
 }
 
 UnicodeString
-DateTimePatternGenerator::getBestAppending(int32_t missingFields, int32_t flags, UDateTimePatternMatchOptions options) {
+DateTimePatternGenerator::getBestAppending(int32_t missingFields, int32_t flags, UErrorCode &status, UDateTimePatternMatchOptions options) {
+    if (U_FAILURE(status)) {
+        return UnicodeString();
+    }
     UnicodeString  resultPattern, tempPattern;
-    UErrorCode err=U_ZERO_ERROR;
+    const UnicodeString* tempPatternPtr;
     int32_t lastMissingFieldMask=0;
     if (missingFields!=0) {
         resultPattern=UnicodeString();
         const PtnSkeleton* specifiedSkeleton=NULL;
-        tempPattern = *getBestRaw(*dtMatcher, missingFields, distanceInfo, &specifiedSkeleton);
+        tempPatternPtr = getBestRaw(*dtMatcher, missingFields, distanceInfo, status, &specifiedSkeleton);
+        if (U_FAILURE(status)) {
+            return UnicodeString();
+        }
+        tempPattern = *tempPatternPtr;
         resultPattern = adjustFieldTypes(tempPattern, specifiedSkeleton, flags, options);
         if ( distanceInfo->missingFieldMask==0 ) {
             return resultPattern;
@@ -1519,19 +1573,26 @@ DateTimePatternGenerator::getBestAppending(int32_t missingFields, int32_t flags,
                 continue;
             }
             int32_t startingMask = distanceInfo->missingFieldMask;
-            tempPattern = *getBestRaw(*dtMatcher, distanceInfo->missingFieldMask, distanceInfo, &specifiedSkeleton);
+            tempPatternPtr = getBestRaw(*dtMatcher, distanceInfo->missingFieldMask, distanceInfo, status, &specifiedSkeleton);
+            if (U_FAILURE(status)) {
+                return UnicodeString();
+            }
+            tempPattern = *tempPatternPtr;
             tempPattern = adjustFieldTypes(tempPattern, specifiedSkeleton, flags, options);
             int32_t foundMask=startingMask& ~distanceInfo->missingFieldMask;
             int32_t topField=getTopBitNumber(foundMask);
-            UnicodeString appendName;
-            getAppendName((UDateTimePatternField)topField, appendName);
-            const UnicodeString *values[3] = {
-                &resultPattern,
-                &tempPattern,
-                &appendName
-            };
-            SimpleFormatter(appendItemFormats[topField], 2, 3, err).
-                    formatAndReplace(values, 3, resultPattern, NULL, 0, err);
+
+            if (appendItemFormats[topField].length() != 0) {
+                UnicodeString appendName;
+                getAppendName((UDateTimePatternField)topField, appendName);
+                const UnicodeString *values[3] = {
+                    &resultPattern,
+                    &tempPattern,
+                    &appendName
+                };
+                SimpleFormatter(appendItemFormats[topField], 2, 3, status).
+                    formatAndReplace(values, 3, resultPattern, NULL, 0, status);
+            }
             lastMissingFieldMask = distanceInfo->missingFieldMask;
         }
     }
@@ -1568,8 +1629,7 @@ DateTimePatternGenerator::isAvailableFormatSet(const UnicodeString &key) const {
 
 void
 DateTimePatternGenerator::copyHashtable(Hashtable *other, UErrorCode &status) {
-
-    if (other == NULL) {
+    if (other == NULL || U_FAILURE(status)) {
         return;
     }
     if (fAvailableFormatKeyHash != NULL) {
@@ -1595,8 +1655,17 @@ DateTimePatternGenerator::copyHashtable(Hashtable *other, UErrorCode &status) {
 
 StringEnumeration*
 DateTimePatternGenerator::getSkeletons(UErrorCode& status) const {
-    StringEnumeration* skeletonEnumerator = new DTSkeletonEnumeration(*patternMap, DT_SKELETON, status);
-    return skeletonEnumerator;
+    if (U_FAILURE(status)) {
+        return NULL;
+    }
+    if (U_FAILURE(errorCode_)) {
+        status = errorCode_;
+        return NULL;
+    }
+    LocalPointer<StringEnumeration> skeletonEnumerator(
+        new DTSkeletonEnumeration(*patternMap, DT_SKELETON, status), status);
+
+    return U_SUCCESS(status) ? skeletonEnumerator.orphan() : NULL;
 }
 
 const UnicodeString&
@@ -1618,15 +1687,32 @@ DateTimePatternGenerator::getPatternForSkeleton(const UnicodeString& skeleton) c
 
 StringEnumeration*
 DateTimePatternGenerator::getBaseSkeletons(UErrorCode& status) const {
-    StringEnumeration* baseSkeletonEnumerator = new DTSkeletonEnumeration(*patternMap, DT_BASESKELETON, status);
-    return baseSkeletonEnumerator;
+    if (U_FAILURE(status)) {
+        return NULL;
+    }
+    if (U_FAILURE(errorCode_)) {
+        status = errorCode_;
+        return NULL;
+    }
+    LocalPointer<StringEnumeration> baseSkeletonEnumerator(
+        new DTSkeletonEnumeration(*patternMap, DT_BASESKELETON, status), status);
+
+    return U_SUCCESS(status) ? baseSkeletonEnumerator.orphan() : NULL;
 }
 
 StringEnumeration*
 DateTimePatternGenerator::getRedundants(UErrorCode& status) {
-    StringEnumeration* output = new DTRedundantEnumeration();
+    if (U_FAILURE(status)) { return NULL; }
+    if (U_FAILURE(errorCode_)) {
+        status = errorCode_;
+        return NULL;
+    }
+    LocalPointer<StringEnumeration> output(new DTRedundantEnumeration(), status);
+    if (U_FAILURE(status)) { return NULL; }
     const UnicodeString *pattern;
-    PatternMapIterator it;
+    PatternMapIterator it(status);
+    if (U_FAILURE(status)) { return NULL; }
+
     for (it.set(*patternMap); it.hasNext(); ) {
         DateTimeMatcher current = it.next();
         pattern = patternMap->getPatternFromSkeleton(*(it.getSkeleton()));
@@ -1635,19 +1721,25 @@ DateTimePatternGenerator::getRedundants(UErrorCode& status) {
         }
         if ( skipMatcher == NULL ) {
             skipMatcher = new DateTimeMatcher(current);
+            if (skipMatcher == NULL) {
+                status = U_MEMORY_ALLOCATION_ERROR;
+                return NULL;
+            }
         }
         else {
             *skipMatcher = current;
         }
         UnicodeString trial = getBestPattern(current.getPattern(), status);
+        if (U_FAILURE(status)) { return NULL; }
         if (trial == *pattern) {
-            ((DTRedundantEnumeration *)output)->add(*pattern, status);
+            ((DTRedundantEnumeration *)output.getAlias())->add(*pattern, status);
+            if (U_FAILURE(status)) { return NULL; }
         }
         if (current.equals(skipMatcher)) {
             continue;
         }
     }
-    return output;
+    return output.orphan();
 }
 
 UBool
@@ -1678,6 +1770,9 @@ PatternMap::PatternMap() {
 
 void
 PatternMap::copyFrom(const PatternMap& other, UErrorCode& status) {
+    if (U_FAILURE(status)) {
+        return;
+    }
     this->isDupAllowed = other.isDupAllowed;
     for (int32_t bootIndex=0; bootIndex<MAX_PATTERN_ENTRIES; ++bootIndex ) {
         PtnElem *curElem, *otherElem, *prevElem=NULL;
@@ -1772,6 +1867,10 @@ PatternMap::add(const UnicodeString& basePattern,
             boot[baseChar-CAP_A] = curElem;
         }
         curElem->skeleton = new PtnSkeleton(skeleton);
+        if (curElem->skeleton == NULL) {
+            status = U_MEMORY_ALLOCATION_ERROR;
+            return;
+        }
         curElem->skeletonWasSpecified = skeletonWasSpecified;
     }
     if ( baseElem != NULL ) {
@@ -1791,6 +1890,10 @@ PatternMap::add(const UnicodeString& basePattern,
             }
             curElem=curElem->next;
             curElem->skeleton = new PtnSkeleton(skeleton);
+            if (curElem->skeleton == NULL) {
+                status = U_MEMORY_ALLOCATION_ERROR;
+                return;
+            }
             curElem->skeletonWasSpecified = skeletonWasSpecified;
         }
         else {
@@ -1987,7 +2090,7 @@ DateTimeMatcher::set(const UnicodeString& pattern, FormatParser* fp, PtnSkeleton
         skeletonResult.baseOriginal.populate(field, repeatChar, repeatCount);
         int16_t subField = row->type;
         if ( row->type > 0) {
-            subField += value.length();
+            subField += static_cast<int16_t>(value.length());
         }
         skeletonResult.type[field] = subField;
     }
@@ -2189,7 +2292,7 @@ FormatParser::isQuoteLiteral(const UnicodeString& s) {
     return (UBool)(s.charAt(0)==SINGLE_QUOTE);
 }
 
-// This function aussumes the current itemIndex points to the quote literal.
+// This function assumes the current itemIndex points to the quote literal.
 // Please call isQuoteLiteral prior to this function.
 void
 FormatParser::getQuoteLiteral(UnicodeString& quote, int32_t *itemIndex) {
@@ -2244,16 +2347,14 @@ DistanceInfo::setTo(DistanceInfo &other) {
     extraFieldMask= other.extraFieldMask;
 }
 
-PatternMapIterator::PatternMapIterator() {
+PatternMapIterator::PatternMapIterator(UErrorCode &status) : matcher(NULL) {
     bootIndex = 0;
     nodePtr = NULL;
-    patternMap=NULL;
-    matcher= new DateTimeMatcher();
+    patternMap = NULL;
+    matcher.adoptInsteadAndCheckErrorCode(new DateTimeMatcher(), status);
 }
 
-
 PatternMapIterator::~PatternMapIterator() {
-    delete matcher;
 }
 
 void
@@ -2476,25 +2577,26 @@ next(NULL)
 }
 
 PtnElem::~PtnElem() {
-
     if (next!=NULL) {
         delete next;
     }
-    delete skeleton;
+    if (skeleton != NULL) {
+        delete skeleton;
+    }
 }
 
-DTSkeletonEnumeration::DTSkeletonEnumeration(PatternMap &patternMap, dtStrEnum type, UErrorCode& status) {
+DTSkeletonEnumeration::DTSkeletonEnumeration(PatternMap &patternMap, dtStrEnum type, UErrorCode& status) : fSkeletons(NULL) {
     PtnElem  *curElem;
     PtnSkeleton *curSkeleton;
     UnicodeString s;
     int32_t bootIndex;
 
     pos=0;
-    fSkeletons = new UVector(status);
+    fSkeletons.adoptInsteadAndCheckErrorCode(new UVector(status), status);
     if (U_FAILURE(status)) {
-        delete fSkeletons;
         return;
     }
+
     for (bootIndex=0; bootIndex<MAX_PATTERN_ENTRIES; ++bootIndex ) {
         curElem = patternMap.boot[bootIndex];
         while (curElem!=NULL) {
@@ -2511,12 +2613,16 @@ DTSkeletonEnumeration::DTSkeletonEnumeration(PatternMap &patternMap, dtStrEnum t
                     break;
             }
             if ( !isCanonicalItem(s) ) {
-                fSkeletons->addElement(new UnicodeString(s), status);
-                if (U_FAILURE(status)) {
-                    delete fSkeletons;
-                    fSkeletons = NULL;
+                LocalPointer<UnicodeString> newElem(new UnicodeString(s), status);
+                if (U_FAILURE(status)) { 
                     return;
                 }
+                fSkeletons->addElement(newElem.getAlias(), status);
+                if (U_FAILURE(status)) {
+                    fSkeletons.adoptInstead(NULL);
+                    return;
+                }
+                newElem.orphan(); // fSkeletons vector now owns the UnicodeString.
             }
             curElem = curElem->next;
         }
@@ -2528,7 +2634,7 @@ DTSkeletonEnumeration::DTSkeletonEnumeration(PatternMap &patternMap, dtStrEnum t
 
 const UnicodeString*
 DTSkeletonEnumeration::snext(UErrorCode& status) {
-    if (U_SUCCESS(status) && pos < fSkeletons->size()) {
+    if (U_SUCCESS(status) && fSkeletons.isValid() && pos < fSkeletons->size()) {
         return (const UnicodeString*)fSkeletons->elementAt(pos++);
     }
     return NULL;
@@ -2541,7 +2647,7 @@ DTSkeletonEnumeration::reset(UErrorCode& /*status*/) {
 
 int32_t
 DTSkeletonEnumeration::count(UErrorCode& /*status*/) const {
-   return (fSkeletons==NULL) ? 0 : fSkeletons->size();
+   return (fSkeletons.isNull()) ? 0 : fSkeletons->size();
 }
 
 UBool
@@ -2559,41 +2665,42 @@ DTSkeletonEnumeration::isCanonicalItem(const UnicodeString& item) {
 
 DTSkeletonEnumeration::~DTSkeletonEnumeration() {
     UnicodeString *s;
-    for (int32_t i=0; i<fSkeletons->size(); ++i) {
-        if ((s=(UnicodeString *)fSkeletons->elementAt(i))!=NULL) {
-            delete s;
+    if (fSkeletons.isValid()) {
+        for (int32_t i = 0; i < fSkeletons->size(); ++i) {
+            if ((s = (UnicodeString *)fSkeletons->elementAt(i)) != NULL) {
+                delete s;
+            }
         }
     }
-    delete fSkeletons;
 }
 
-DTRedundantEnumeration::DTRedundantEnumeration() {
-    pos=0;
-    fPatterns = NULL;
+DTRedundantEnumeration::DTRedundantEnumeration() : pos(0), fPatterns(NULL) {
 }
 
 void
 DTRedundantEnumeration::add(const UnicodeString& pattern, UErrorCode& status) {
-    if (U_FAILURE(status)) return;
-    if (fPatterns == NULL)  {
-        fPatterns = new UVector(status);
+    if (U_FAILURE(status)) { return; }
+    if (fPatterns.isNull())  {
+        fPatterns.adoptInsteadAndCheckErrorCode(new UVector(status), status);
         if (U_FAILURE(status)) {
-            delete fPatterns;
-            fPatterns = NULL;
             return;
        }
     }
-    fPatterns->addElement(new UnicodeString(pattern), status);
+    LocalPointer<UnicodeString> newElem(new UnicodeString(pattern), status);
     if (U_FAILURE(status)) {
-        delete fPatterns;
-        fPatterns = NULL;
         return;
     }
+    fPatterns->addElement(newElem.getAlias(), status);
+    if (U_FAILURE(status)) {
+        fPatterns.adoptInstead(NULL);
+        return;
+    }
+    newElem.orphan(); // fPatterns now owns the string.
 }
 
 const UnicodeString*
 DTRedundantEnumeration::snext(UErrorCode& status) {
-    if (U_SUCCESS(status) && pos < fPatterns->size()) {
+    if (U_SUCCESS(status) && fPatterns.isValid() && pos < fPatterns->size()) {
         return (const UnicodeString*)fPatterns->elementAt(pos++);
     }
     return NULL;
@@ -2606,7 +2713,7 @@ DTRedundantEnumeration::reset(UErrorCode& /*status*/) {
 
 int32_t
 DTRedundantEnumeration::count(UErrorCode& /*status*/) const {
-       return (fPatterns==NULL) ? 0 : fPatterns->size();
+    return (fPatterns.isNull()) ? 0 : fPatterns->size();
 }
 
 UBool
@@ -2624,12 +2731,13 @@ DTRedundantEnumeration::isCanonicalItem(const UnicodeString& item) {
 
 DTRedundantEnumeration::~DTRedundantEnumeration() {
     UnicodeString *s;
-    for (int32_t i=0; i<fPatterns->size(); ++i) {
-        if ((s=(UnicodeString *)fPatterns->elementAt(i))!=NULL) {
-            delete s;
+    if (fPatterns.isValid()) {
+        for (int32_t i = 0; i < fPatterns->size(); ++i) {
+            if ((s = (UnicodeString *)fPatterns->elementAt(i)) != NULL) {
+                delete s;
+            }
         }
-    }
-    delete fPatterns;
+    }    
 }
 
 U_NAMESPACE_END

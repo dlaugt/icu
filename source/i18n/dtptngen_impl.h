@@ -262,7 +262,7 @@ private:
 
 class PatternMapIterator : public UMemory {
 public:
-    PatternMapIterator();
+    PatternMapIterator(UErrorCode &status);
     virtual ~PatternMapIterator();
     void set(PatternMap& patternMap);
     PtnSkeleton* getSkeleton();
@@ -271,7 +271,7 @@ public:
 private:
     int32_t bootIndex;
     PtnElem *nodePtr;
-    DateTimeMatcher *matcher;
+    LocalPointer<DateTimeMatcher> matcher;
     PatternMap *patternMap;
 };
 
@@ -287,7 +287,7 @@ public:
 private:
     int32_t pos;
     UBool isCanonicalItem(const UnicodeString& item);
-    UVector *fSkeletons;
+    LocalPointer<UVector> fSkeletons;
 };
 
 class DTRedundantEnumeration : public StringEnumeration {
@@ -303,7 +303,7 @@ public:
 private:
     int32_t pos;
     UBool isCanonicalItem(const UnicodeString& item);
-    UVector *fPatterns;
+    LocalPointer<UVector> fPatterns;
 };
 
 U_NAMESPACE_END
