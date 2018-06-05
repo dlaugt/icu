@@ -189,7 +189,7 @@ public:
 class FormatParser : public UMemory {
 public:
     UnicodeString items[MAX_DT_TOKEN];
-    int32_t  itemNumber;
+    int32_t itemNumber;
 
     FormatParser();
     virtual ~FormatParser();
