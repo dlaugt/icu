@@ -195,7 +195,7 @@ public:
     virtual ~FormatParser();
     void set(const UnicodeString& patternString);
     void getQuoteLiteral(UnicodeString& quote, int32_t *itemIndex);
-    UBool isPatternSeparator(UnicodeString& field);
+    UBool isPatternSeparator(const UnicodeString& field);
     static UBool isQuoteLiteral(const UnicodeString& s);
     static int32_t getCanonicalIndex(const UnicodeString& s) { return getCanonicalIndex(s, TRUE); }
     static int32_t getCanonicalIndex(const UnicodeString& s, UBool strict);
@@ -220,7 +220,7 @@ public:
     DistanceInfo() {}
     virtual ~DistanceInfo();
     void clear() { missingFieldMask = extraFieldMask = 0; }
-    void setTo(DistanceInfo& other);
+    void setTo(const DistanceInfo& other);
     void addMissing(int32_t field) { missingFieldMask |= (1<<field); }
     void addExtra(int32_t field) { extraFieldMask |= (1<<field); }
 };
@@ -250,14 +250,14 @@ public:
     PatternMap();
     virtual  ~PatternMap();
     void  add(const UnicodeString& basePattern, const PtnSkeleton& skeleton, const UnicodeString& value, UBool skeletonWasSpecified, UErrorCode& status);
-    const UnicodeString* getPatternFromBasePattern(UnicodeString& basePattern, UBool& skeletonWasSpecified);
-    const UnicodeString* getPatternFromSkeleton(PtnSkeleton& skeleton, const PtnSkeleton** specifiedSkeletonPtr = 0);
+    const UnicodeString* getPatternFromBasePattern(const UnicodeString& basePattern, UBool& skeletonWasSpecified);
+    const UnicodeString* getPatternFromSkeleton(const PtnSkeleton& skeleton, const PtnSkeleton** specifiedSkeletonPtr = 0);
     void copyFrom(const PatternMap& other, UErrorCode& status);
     PtnElem* getHeader(UChar baseChar);
     UBool equals(const PatternMap& other);
 private:
     UBool isDupAllowed;
-    PtnElem*  getDuplicateElem(const UnicodeString &basePattern, const PtnSkeleton& skeleton, PtnElem *baseElem);
+    PtnElem*  getDuplicateElem(const UnicodeString& basePattern, const PtnSkeleton& skeleton, PtnElem *baseElem);
 }; // end  PatternMap
 
 class PatternMapIterator : public UMemory {
@@ -277,7 +277,7 @@ private:
 
 class DTSkeletonEnumeration : public StringEnumeration {
 public:
-    DTSkeletonEnumeration(PatternMap &patternMap, dtStrEnum type, UErrorCode& status);
+    DTSkeletonEnumeration(PatternMap& patternMap, dtStrEnum type, UErrorCode& status);
     virtual ~DTSkeletonEnumeration();
     static UClassID U_EXPORT2 getStaticClassID(void);
     virtual UClassID getDynamicClassID(void) const;

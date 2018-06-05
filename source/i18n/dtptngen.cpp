@@ -1913,7 +1913,7 @@ PatternMap::add(const UnicodeString& basePattern,
 
 // Find the pattern from the given basePattern string.
 const UnicodeString *
-PatternMap::getPatternFromBasePattern(UnicodeString& basePattern, UBool& skeletonWasSpecified) { // key to search for
+PatternMap::getPatternFromBasePattern(const UnicodeString& basePattern, UBool& skeletonWasSpecified) { // key to search for
    PtnElem *curElem;
 
    if ((curElem=getHeader(basePattern.charAt(0)))==nullptr) {
@@ -1939,7 +1939,7 @@ PatternMap::getPatternFromBasePattern(UnicodeString& basePattern, UBool& skeleto
 // optimum distance value in getBestRaw. When this is called from public getRedundants (specifiedSkeletonPtr is NULL),
 // for now it will continue to compare based on baseOriginal so as not to change the behavior unnecessarily.
 const UnicodeString *
-PatternMap::getPatternFromSkeleton(PtnSkeleton& skeleton, const PtnSkeleton** specifiedSkeletonPtr) { // key to search for
+PatternMap::getPatternFromSkeleton(const PtnSkeleton& skeleton, const PtnSkeleton** specifiedSkeletonPtr) { // key to search for
    PtnElem *curElem;
 
    if (specifiedSkeletonPtr) {
@@ -2326,7 +2326,7 @@ FormatParser::getQuoteLiteral(UnicodeString& quote, int32_t *itemIndex) {
 }
 
 UBool
-FormatParser::isPatternSeparator(UnicodeString& field) {
+FormatParser::isPatternSeparator(const UnicodeString& field) {
     for (int32_t i=0; i<field.length(); ++i ) {
         UChar c= field.charAt(i);
         if ( (c==SINGLE_QUOTE) || (c==BACKSLASH) || (c==SPACE) || (c==COLON) ||
@@ -2343,12 +2343,12 @@ FormatParser::isPatternSeparator(UnicodeString& field) {
 DistanceInfo::~DistanceInfo() {}
 
 void
-DistanceInfo::setTo(DistanceInfo &other) {
+DistanceInfo::setTo(const DistanceInfo& other) {
     missingFieldMask = other.missingFieldMask;
     extraFieldMask= other.extraFieldMask;
 }
 
-PatternMapIterator::PatternMapIterator(UErrorCode &status) : matcher(nullptr) {
+PatternMapIterator::PatternMapIterator(UErrorCode& status) : matcher(nullptr) {
     bootIndex = 0;
     nodePtr = nullptr;
     patternMap = nullptr;
@@ -2586,7 +2586,7 @@ PtnElem::~PtnElem() {
     }
 }
 
-DTSkeletonEnumeration::DTSkeletonEnumeration(PatternMap &patternMap, dtStrEnum type, UErrorCode& status) : fSkeletons(nullptr) {
+DTSkeletonEnumeration::DTSkeletonEnumeration(PatternMap& patternMap, dtStrEnum type, UErrorCode& status) : fSkeletons(nullptr) {
     PtnElem  *curElem;
     PtnSkeleton *curSkeleton;
     UnicodeString s;
