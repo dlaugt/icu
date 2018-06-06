@@ -544,7 +544,7 @@ private:
 
     // Internal error code used for reporting errors that occur during methods that do not
     // have a UErrorCode parameter. For example: the Copy Constructor, or the ::clone() method.
-    UErrorCode errorCode_;
+    UErrorCode internalErrorCode;
 
     /* internal flags masks for adjustFieldTypes etc. */
     enum {

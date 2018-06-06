@@ -323,28 +323,28 @@ DateTimePatternGenerator::createEmptyInstance(UErrorCode& status) {
 DateTimePatternGenerator::DateTimePatternGenerator(UErrorCode &status) :
     skipMatcher(nullptr),
     fAvailableFormatKeyHash(nullptr),
-    errorCode_(U_ZERO_ERROR)
+    internalErrorCode(U_ZERO_ERROR)
 {
     fp = new FormatParser();
     dtMatcher = new DateTimeMatcher();
     distanceInfo = new DistanceInfo();
     patternMap = new PatternMap();
     if (fp == nullptr || dtMatcher == nullptr || distanceInfo == nullptr || patternMap == nullptr) {
-        errorCode_ = status = U_MEMORY_ALLOCATION_ERROR;
+        internalErrorCode = status = U_MEMORY_ALLOCATION_ERROR;
     }
 }
 
 DateTimePatternGenerator::DateTimePatternGenerator(const Locale& locale, UErrorCode &status) :
     skipMatcher(nullptr),
     fAvailableFormatKeyHash(nullptr),
-    errorCode_(U_ZERO_ERROR)
+    internalErrorCode(U_ZERO_ERROR)
 {
     fp = new FormatParser();
     dtMatcher = new DateTimeMatcher();
     distanceInfo = new DistanceInfo();
     patternMap = new PatternMap();
     if (fp == nullptr || dtMatcher == nullptr || distanceInfo == nullptr || patternMap == nullptr) {
-        errorCode_ = status = U_MEMORY_ALLOCATION_ERROR;
+        internalErrorCode = status = U_MEMORY_ALLOCATION_ERROR;
     }
     else {
         initData(locale, status);
@@ -355,14 +355,14 @@ DateTimePatternGenerator::DateTimePatternGenerator(const DateTimePatternGenerato
     UObject(),
     skipMatcher(nullptr),
     fAvailableFormatKeyHash(nullptr),
-    errorCode_(U_ZERO_ERROR)
+    internalErrorCode(U_ZERO_ERROR)
 {
     fp = new FormatParser();
     dtMatcher = new DateTimeMatcher();
     distanceInfo = new DistanceInfo();
     patternMap = new PatternMap();
     if (fp == nullptr || dtMatcher == nullptr || distanceInfo == nullptr || patternMap == nullptr) {
-        errorCode_ = U_MEMORY_ALLOCATION_ERROR;
+        internalErrorCode = U_MEMORY_ALLOCATION_ERROR;
     }
     *this=other;
 }
@@ -373,7 +373,7 @@ DateTimePatternGenerator::operator=(const DateTimePatternGenerator& other) {
     if (&other == this) {
         return *this;
     }
-    errorCode_ = other.errorCode_;
+    internalErrorCode = other.internalErrorCode;
     pLocale = other.pLocale;
     fDefaultHourFormatChar = other.fDefaultHourFormatChar;
     *fp = *(other.fp);
@@ -390,7 +390,7 @@ DateTimePatternGenerator::operator=(const DateTimePatternGenerator& other) {
     }
     else {
         skipMatcher = new DateTimeMatcher(*other.skipMatcher);
-        errorCode_ = U_MEMORY_ALLOCATION_ERROR;
+        internalErrorCode = U_MEMORY_ALLOCATION_ERROR;
         return *this;
     }
     for (int32_t i=0; i< UDATPG_FIELD_COUNT; ++i ) {
@@ -401,8 +401,8 @@ DateTimePatternGenerator::operator=(const DateTimePatternGenerator& other) {
             fieldDisplayNames[i][j].getTerminatedBuffer(); // NUL-terminate for the C API.
         }
     }
-    patternMap->copyFrom(*other.patternMap, errorCode_);
-    copyHashtable(other.fAvailableFormatKeyHash, errorCode_);
+    patternMap->copyFrom(*other.patternMap, internalErrorCode);
+    copyHashtable(other.fAvailableFormatKeyHash, internalErrorCode);
     return *this;
 }
 
@@ -490,7 +490,7 @@ DateTimePatternGenerator::initData(const Locale& locale, UErrorCode &status) {
     umtx_initOnce(initOnce, loadAllowedHourFormatsData, status);
     getAllowedHourFormats(locale, status);
     // If any of the above methods failed then the object is in an invalid state.
-    errorCode_ = status;
+    internalErrorCode = status;
 } // DateTimePatternGenerator::initData
 
 namespace {
@@ -1045,8 +1045,8 @@ DateTimePatternGenerator::getBestPattern(const UnicodeString& patternForm, UDate
     if (U_FAILURE(status)) {
         return UnicodeString();
     }
-    if (U_FAILURE(errorCode_)) {
-        status = errorCode_;
+    if (U_FAILURE(internalErrorCode)) {
+        status = internalErrorCode;
         return UnicodeString();
     }
     const UnicodeString *bestPattern = nullptr;
@@ -1191,8 +1191,8 @@ DateTimePatternGenerator::replaceFieldTypes(const UnicodeString& pattern,
     if (U_FAILURE(status)) {
         return UnicodeString();
     }
-    if (U_FAILURE(errorCode_)) {
-        status = errorCode_;
+    if (U_FAILURE(internalErrorCode)) {
+        status = internalErrorCode;
         return UnicodeString();
     }
     dtMatcher->set(skeleton, fp);
@@ -1295,8 +1295,8 @@ DateTimePatternGenerator::addPattern(
     UnicodeString &conflictingPattern,
     UErrorCode& status)
 {
-    if (U_FAILURE(errorCode_)) {
-        status = errorCode_;
+    if (U_FAILURE(internalErrorCode)) {
+        status = internalErrorCode;
         return UDATPG_NO_CONFLICT;
     }
 
@@ -1321,8 +1321,8 @@ DateTimePatternGenerator::addPatternWithSkeleton(
     UnicodeString& conflictingPattern,
     UErrorCode& status)
 {
-    if (U_FAILURE(errorCode_)) {
-        status = errorCode_;
+    if (U_FAILURE(internalErrorCode)) {
+        status = internalErrorCode;
         return UDATPG_NO_CONFLICT;
     }
 
@@ -1659,8 +1659,8 @@ DateTimePatternGenerator::getSkeletons(UErrorCode& status) const {
     if (U_FAILURE(status)) {
         return nullptr;
     }
-    if (U_FAILURE(errorCode_)) {
-        status = errorCode_;
+    if (U_FAILURE(internalErrorCode)) {
+        status = internalErrorCode;
         return nullptr;
     }
     LocalPointer<StringEnumeration> skeletonEnumerator(
@@ -1691,8 +1691,8 @@ DateTimePatternGenerator::getBaseSkeletons(UErrorCode& status) const {
     if (U_FAILURE(status)) {
         return nullptr;
     }
-    if (U_FAILURE(errorCode_)) {
-        status = errorCode_;
+    if (U_FAILURE(internalErrorCode)) {
+        status = internalErrorCode;
         return nullptr;
     }
     LocalPointer<StringEnumeration> baseSkeletonEnumerator(
@@ -1704,8 +1704,8 @@ DateTimePatternGenerator::getBaseSkeletons(UErrorCode& status) const {
 StringEnumeration*
 DateTimePatternGenerator::getRedundants(UErrorCode& status) {
     if (U_FAILURE(status)) { return nullptr; }
-    if (U_FAILURE(errorCode_)) {
-        status = errorCode_;
+    if (U_FAILURE(internalErrorCode)) {
+        status = internalErrorCode;
         return nullptr;
     }
     LocalPointer<StringEnumeration> output(new DTRedundantEnumeration(), status);
