@@ -116,7 +116,7 @@ typedef struct dtTypeElem {
     int16_t                type;
     int16_t                minLen;
     int16_t                weight;
-}dtTypeElem;
+} dtTypeElem;
 
 // A compact storage mechanism for skeleton field strings.  Several dozen of these will be created
 // for a typical DateTimePatternGenerator instance.
@@ -172,18 +172,16 @@ public:
     virtual ~PtnSkeleton();
 };
 
-
 class PtnElem : public UMemory {
 public:
     UnicodeString basePattern;
-    PtnSkeleton   *skeleton;
+    LocalPointer<PtnSkeleton> skeleton;
     UnicodeString pattern;
     UBool         skeletonWasSpecified; // if specified in availableFormats, not derived
-    PtnElem       *next;
+    LocalPointer<PtnElem> next;
 
     PtnElem(const UnicodeString &basePattern, const UnicodeString &pattern);
     virtual ~PtnElem();
-
 };
 
 class FormatParser : public UMemory {
@@ -195,7 +193,7 @@ public:
     virtual ~FormatParser();
     void set(const UnicodeString& patternString);
     void getQuoteLiteral(UnicodeString& quote, int32_t *itemIndex);
-    UBool isPatternSeparator(const UnicodeString& field);
+    UBool isPatternSeparator(const UnicodeString& field) const;
     static UBool isQuoteLiteral(const UnicodeString& s);
     static int32_t getCanonicalIndex(const UnicodeString& s) { return getCanonicalIndex(s, TRUE); }
     static int32_t getCanonicalIndex(const UnicodeString& s, UBool strict);
@@ -206,7 +204,7 @@ private:
        ADD_TOKEN,
        SYNTAX_ERROR,
        DONE
-   } ToeknStatus;
+   } TokenStatus;
 
    TokenStatus status;
    virtual TokenStatus setTokens(const UnicodeString& pattern, int32_t startPos, int32_t *len);
@@ -237,11 +235,11 @@ public:
     void copyFrom();
     PtnSkeleton* getSkeletonPtr();
     UBool equals(const DateTimeMatcher* other) const;
-    int32_t getDistance(const DateTimeMatcher& other, int32_t includeMask, DistanceInfo& distanceInfo);
+    int32_t getDistance(const DateTimeMatcher& other, int32_t includeMask, DistanceInfo& distanceInfo) const;
     DateTimeMatcher();
     DateTimeMatcher(const DateTimeMatcher& other);
     virtual ~DateTimeMatcher();
-    int32_t getFieldMask();
+    int32_t getFieldMask() const;
 };
 
 class PatternMap : public UMemory {
@@ -250,11 +248,11 @@ public:
     PatternMap();
     virtual  ~PatternMap();
     void  add(const UnicodeString& basePattern, const PtnSkeleton& skeleton, const UnicodeString& value, UBool skeletonWasSpecified, UErrorCode& status);
-    const UnicodeString* getPatternFromBasePattern(const UnicodeString& basePattern, UBool& skeletonWasSpecified);
-    const UnicodeString* getPatternFromSkeleton(const PtnSkeleton& skeleton, const PtnSkeleton** specifiedSkeletonPtr = 0);
+    const UnicodeString* getPatternFromBasePattern(const UnicodeString& basePattern, UBool& skeletonWasSpecified) const;
+    const UnicodeString* getPatternFromSkeleton(const PtnSkeleton& skeleton, const PtnSkeleton** specifiedSkeletonPtr = 0) const;
     void copyFrom(const PatternMap& other, UErrorCode& status);
-    PtnElem* getHeader(UChar baseChar);
-    UBool equals(const PatternMap& other);
+    PtnElem* getHeader(UChar baseChar) const;
+    UBool equals(const PatternMap& other) const;
 private:
     UBool isDupAllowed;
     PtnElem*  getDuplicateElem(const UnicodeString& basePattern, const PtnSkeleton& skeleton, PtnElem *baseElem);
@@ -265,8 +263,8 @@ public:
     PatternMapIterator(UErrorCode &status);
     virtual ~PatternMapIterator();
     void set(PatternMap& patternMap);
-    PtnSkeleton* getSkeleton();
-    UBool hasNext();
+    PtnSkeleton* getSkeleton() const;
+    UBool hasNext() const;
     DateTimeMatcher& next();
 private:
     int32_t bootIndex;
@@ -302,7 +300,7 @@ public:
     void add(const UnicodeString &pattern, UErrorCode& status);
 private:
     int32_t pos;
-    UBool isCanonicalItem(const UnicodeString& item);
+    UBool isCanonicalItem(const UnicodeString& item) const;
     LocalPointer<UVector> fPatterns;
 };
 

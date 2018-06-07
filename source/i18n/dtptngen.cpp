@@ -390,8 +390,11 @@ DateTimePatternGenerator::operator=(const DateTimePatternGenerator& other) {
     }
     else {
         skipMatcher = new DateTimeMatcher(*other.skipMatcher);
-        internalErrorCode = U_MEMORY_ALLOCATION_ERROR;
-        return *this;
+        if (skipMatcher == nullptr)
+        {
+            internalErrorCode = U_MEMORY_ALLOCATION_ERROR;
+            return *this;
+        }
     }
     for (int32_t i=0; i< UDATPG_FIELD_COUNT; ++i ) {
         appendItemFormats[i] = other.appendItemFormats[i];
@@ -567,8 +570,10 @@ U_CFUNC void U_CALLCONV DateTimePatternGenerator::loadAllowedHourFormatsData(UEr
     if (U_FAILURE(status)) { return; }
 
     uhash_setValueDeleter(localeToAllowedHourFormatsMap, deleteAllowedHourFormats);
+    ucln_i18n_registerCleanup(UCLN_I18N_ALLOWED_HOUR_FORMATS, allowedHourFormatsCleanup);
 
     LocalUResourceBundlePointer rb(ures_openDirect(nullptr, "supplementalData", &status));
+    if (U_FAILURE(status)) { return; }
 
     AllowedHourFormatsSink sink;
     // TODO: Currently in the enumeration each table allocates a new array.
@@ -577,9 +582,7 @@ U_CFUNC void U_CALLCONV DateTimePatternGenerator::loadAllowedHourFormatsData(UEr
     // into the hashmap, store 6 single-value sub-arrays right at the beginning of the
     // vector (at index enum*2) for easy data sharing, copy sub-arrays into runtime
     // object. Remember to clean up the vector, too.
-    ures_getAllItemsWithFallback(rb.getAlias(), "timeData", sink, status);
-
-    ucln_i18n_registerCleanup(UCLN_I18N_ALLOWED_HOUR_FORMATS, allowedHourFormatsCleanup);
+    ures_getAllItemsWithFallback(rb.getAlias(), "timeData", sink, status);    
 }
 
 void DateTimePatternGenerator::getAllowedHourFormats(const Locale &locale, UErrorCode &status) {
@@ -787,7 +790,7 @@ DateTimePatternGenerator::getCalendarTypeToUse(const Locale& locale, CharString&
 void
 DateTimePatternGenerator::consumeShortTimePattern(const UnicodeString& shortTimePattern,
         UErrorCode& status) {
-
+    if (U_FAILURE(status)) { return; }
     // set fDefaultHourFormatChar to the hour format character from this pattern
     int32_t tfIdx, tfLen = shortTimePattern.length();
     UBool ignoreChars = FALSE;
@@ -1248,6 +1251,7 @@ DateTimePatternGenerator::setDateTimeFromCalendar(const Locale& locale, UErrorCo
     if (U_FAILURE(status)) { return; }
 
     LocalUResourceBundlePointer calData(ures_open(nullptr, locale.getBaseName(), &status));
+    if (U_FAILURE(status)) { return; }
     ures_getByKey(calData.getAlias(), DT_DateTimeCalendarTag, calData.getAlias(), &status);
     if (U_FAILURE(status)) { return; }
 
@@ -1601,7 +1605,7 @@ DateTimePatternGenerator::getBestAppending(int32_t missingFields, int32_t flags,
 }
 
 int32_t
-DateTimePatternGenerator::getTopBitNumber(int32_t foundMask) {
+DateTimePatternGenerator::getTopBitNumber(int32_t foundMask) const {
     if ( foundMask==0 ) {
         return 0;
     }
@@ -1681,7 +1685,7 @@ DateTimePatternGenerator::getPatternForSkeleton(const UnicodeString& skeleton) c
         if ( curElem->skeleton->getSkeleton()==skeleton ) {
             return curElem->pattern;
         }
-        curElem=curElem->next;
+        curElem = curElem->next.getAlias();
     }
     return emptyString;
 }
@@ -1775,37 +1779,43 @@ PatternMap::copyFrom(const PatternMap& other, UErrorCode& status) {
         return;
     }
     this->isDupAllowed = other.isDupAllowed;
-    for (int32_t bootIndex=0; bootIndex<MAX_PATTERN_ENTRIES; ++bootIndex ) {
+    for (int32_t bootIndex = 0; bootIndex < MAX_PATTERN_ENTRIES; ++bootIndex) {
         PtnElem *curElem, *otherElem, *prevElem=nullptr;
         otherElem = other.boot[bootIndex];
-        while (otherElem!=nullptr) {
-            if ((curElem = new PtnElem(otherElem->basePattern, otherElem->pattern))==nullptr) {
-                // out of memory
-                status = U_MEMORY_ALLOCATION_ERROR;
-                return;
+        while (otherElem != nullptr) {
+            LocalPointer<PtnElem> newElem(new PtnElem(otherElem->basePattern, otherElem->pattern), status);
+            if (U_FAILURE(status)) {
+                return; // out of memory
             }
-            if ( this->boot[bootIndex]== nullptr ) {
+            newElem->skeleton.adoptInsteadAndCheckErrorCode(new PtnSkeleton(*(otherElem->skeleton)), status);
+            if (U_FAILURE(status)) {
+                return; // out of memory
+            }
+            newElem->skeletonWasSpecified = otherElem->skeletonWasSpecified;
+
+            // Release ownership from the LocalPointer of the PtnElem object.
+            // The PtnElem will now be owned by either the boot (for the first entry in the linked-list)
+            // or owned by the previous PtnElem object in the linked-list.
+            curElem = newElem.orphan();
+
+            if (this->boot[bootIndex] == nullptr) {
                 this->boot[bootIndex] = curElem;
+            } else {
+                if (prevElem != nullptr) {
+                    prevElem->next.adoptInstead(curElem);
+                } else {
+                    U_ASSERT(false);
+                }
             }
-            if ((curElem->skeleton=new PtnSkeleton(*(otherElem->skeleton))) == nullptr ) {
-                // out of memory
-                status = U_MEMORY_ALLOCATION_ERROR;
-                return;
-            }
-            curElem->skeletonWasSpecified = otherElem->skeletonWasSpecified;
-            if (prevElem!=nullptr) {
-                prevElem->next = curElem;
-            }
-            curElem->next=nullptr;
             prevElem = curElem;
-            otherElem = otherElem->next;
+            otherElem = otherElem->next.getAlias();
         }
 
     }
 }
 
 PtnElem*
-PatternMap::getHeader(UChar baseChar) {
+PatternMap::getHeader(UChar baseChar) const {
     PtnElem* curElem;
 
     if ( (baseChar >= CAP_A) && (baseChar <= CAP_Z) ) {
@@ -1856,23 +1866,21 @@ PatternMap::add(const UnicodeString& basePattern,
     }
 
     if (baseElem == nullptr) {
-        if ((curElem = new PtnElem(basePattern, value)) == nullptr ) {
-            // out of memory
-            status = U_MEMORY_ALLOCATION_ERROR;
-            return;
+        LocalPointer<PtnElem> newElem(new PtnElem(basePattern, value), status);
+        if (U_FAILURE(status)) {
+            return; // out of memory
         }
+        newElem->skeleton.adoptInsteadAndCheckErrorCode(new PtnSkeleton(skeleton), status);
+        if (U_FAILURE(status)) {
+            return; // out of memory
+        }
+        newElem->skeletonWasSpecified = skeletonWasSpecified;
         if (baseChar >= LOW_A) {
-            boot[26 + (baseChar-LOW_A)] = curElem;
+            boot[26 + (baseChar - LOW_A)] = newElem.orphan(); // the boot array now owns the PtnElem.
         }
         else {
-            boot[baseChar-CAP_A] = curElem;
+            boot[baseChar - CAP_A] = newElem.orphan(); // the boot array now owns the PtnElem.
         }
-        curElem->skeleton = new PtnSkeleton(skeleton);
-        if (curElem->skeleton == nullptr) {
-            status = U_MEMORY_ALLOCATION_ERROR;
-            return;
-        }
-        curElem->skeletonWasSpecified = skeletonWasSpecified;
     }
     if ( baseElem != nullptr ) {
         curElem = getDuplicateElem(basePattern, skeleton, baseElem);
@@ -1882,20 +1890,20 @@ PatternMap::add(const UnicodeString& basePattern,
             curElem = baseElem;
             while( curElem -> next != nullptr )
             {
-                curElem = curElem->next;
+                curElem = curElem->next.getAlias();
             }
-            if ((curElem->next = new PtnElem(basePattern, value)) == nullptr ) {
-                // out of memory
-                status = U_MEMORY_ALLOCATION_ERROR;
-                return;
+
+            LocalPointer<PtnElem> newElem(new PtnElem(basePattern, value), status);
+            if (U_FAILURE(status)) {
+                return; // out of memory
             }
-            curElem=curElem->next;
-            curElem->skeleton = new PtnSkeleton(skeleton);
-            if (curElem->skeleton == nullptr) {
-                status = U_MEMORY_ALLOCATION_ERROR;
-                return;
+            newElem->skeleton.adoptInsteadAndCheckErrorCode(new PtnSkeleton(skeleton), status);
+            if (U_FAILURE(status)) {
+                return; // out of memory
             }
-            curElem->skeletonWasSpecified = skeletonWasSpecified;
+            newElem->skeletonWasSpecified = skeletonWasSpecified;
+            curElem->next.adoptInstead(newElem.orphan());
+            curElem = curElem->next.getAlias();
         }
         else {
             // Pattern exists in the list already.
@@ -1913,7 +1921,7 @@ PatternMap::add(const UnicodeString& basePattern,
 
 // Find the pattern from the given basePattern string.
 const UnicodeString *
-PatternMap::getPatternFromBasePattern(const UnicodeString& basePattern, UBool& skeletonWasSpecified) { // key to search for
+PatternMap::getPatternFromBasePattern(const UnicodeString& basePattern, UBool& skeletonWasSpecified) const { // key to search for
    PtnElem *curElem;
 
    if ((curElem=getHeader(basePattern.charAt(0)))==nullptr) {
@@ -1925,8 +1933,8 @@ PatternMap::getPatternFromBasePattern(const UnicodeString& basePattern, UBool& s
           skeletonWasSpecified = curElem->skeletonWasSpecified;
           return &(curElem->pattern);
        }
-       curElem=curElem->next;
-   }while (curElem != nullptr);
+       curElem = curElem->next.getAlias();
+   } while (curElem != nullptr);
 
    return nullptr;
 }  // PatternMap::getFromBasePattern
@@ -1939,7 +1947,7 @@ PatternMap::getPatternFromBasePattern(const UnicodeString& basePattern, UBool& s
 // optimum distance value in getBestRaw. When this is called from public getRedundants (specifiedSkeletonPtr is NULL),
 // for now it will continue to compare based on baseOriginal so as not to change the behavior unnecessarily.
 const UnicodeString *
-PatternMap::getPatternFromSkeleton(const PtnSkeleton& skeleton, const PtnSkeleton** specifiedSkeletonPtr) { // key to search for
+PatternMap::getPatternFromSkeleton(const PtnSkeleton& skeleton, const PtnSkeleton** specifiedSkeletonPtr) const { // key to search for
    PtnElem *curElem;
 
    if (specifiedSkeletonPtr) {
@@ -1961,47 +1969,47 @@ PatternMap::getPatternFromSkeleton(const PtnSkeleton& skeleton, const PtnSkeleto
        }
        if (equal) {
            if (specifiedSkeletonPtr && curElem->skeletonWasSpecified) {
-               *specifiedSkeletonPtr = curElem->skeleton;
+               *specifiedSkeletonPtr = curElem->skeleton.getAlias();
            }
            return &(curElem->pattern);
        }
-       curElem = curElem->next;
-   }while (curElem != nullptr);
+       curElem = curElem->next.getAlias();
+   } while (curElem != nullptr);
 
    return nullptr;
 }
 
 UBool
-PatternMap::equals(const PatternMap& other) {
+PatternMap::equals(const PatternMap& other) const {
     if ( this==&other ) {
         return TRUE;
     }
-    for (int32_t bootIndex=0; bootIndex<MAX_PATTERN_ENTRIES; ++bootIndex ) {
-        if ( boot[bootIndex]==other.boot[bootIndex] ) {
+    for (int32_t bootIndex = 0; bootIndex < MAX_PATTERN_ENTRIES; ++bootIndex) {
+        if (boot[bootIndex] == other.boot[bootIndex]) {
             continue;
         }
-        if ( (boot[bootIndex]==nullptr)||(other.boot[bootIndex]==nullptr) ) {
+        if ((boot[bootIndex] == nullptr) || (other.boot[bootIndex] == nullptr)) {
             return FALSE;
         }
         PtnElem *otherElem = other.boot[bootIndex];
         PtnElem *myElem = boot[bootIndex];
-        while ((otherElem!=nullptr) || (myElem!=nullptr)) {
+        while ((otherElem != nullptr) || (myElem != nullptr)) {
             if ( myElem == otherElem ) {
                 break;
             }
-            if ((otherElem==nullptr) || (myElem==nullptr)) {
+            if ((otherElem == nullptr) || (myElem == nullptr)) {
                 return FALSE;
             }
             if ( (myElem->basePattern != otherElem->basePattern) ||
                  (myElem->pattern != otherElem->pattern) ) {
                 return FALSE;
             }
-            if ((myElem->skeleton!=otherElem->skeleton)&&
+            if ((myElem->skeleton.getAlias() != otherElem->skeleton.getAlias()) &&
                 !myElem->skeleton->equals(*(otherElem->skeleton))) {
                 return FALSE;
             }
-            myElem = myElem->next;
-            otherElem=otherElem->next;
+            myElem = myElem->next.getAlias();
+            otherElem = otherElem->next.getAlias();
         }
     }
     return TRUE;
@@ -2013,21 +2021,21 @@ PtnElem*
 PatternMap::getDuplicateElem(
             const UnicodeString &basePattern,
             const PtnSkeleton &skeleton,
-            PtnElem *baseElem)  {
+            PtnElem *baseElem) {
    PtnElem *curElem;
 
-   if ( baseElem == (PtnElem *)nullptr )  {
-         return (PtnElem*)nullptr;
+   if ( baseElem == nullptr ) {
+         return nullptr;
    }
    else {
          curElem = baseElem;
    }
    do {
      if ( basePattern.compare(curElem->basePattern)==0 ) {
-        UBool isEqual=TRUE;
-        for (int32_t i=0; i<UDATPG_FIELD_COUNT; ++i) {
+         UBool isEqual = TRUE;
+         for (int32_t i = 0; i < UDATPG_FIELD_COUNT; ++i) {
             if (curElem->skeleton->type[i] != skeleton.type[i] ) {
-                isEqual=FALSE;
+                isEqual = FALSE;
                 break;
             }
         }
@@ -2035,11 +2043,11 @@ PatternMap::getDuplicateElem(
             return curElem;
         }
      }
-     curElem = curElem->next;
-   } while( curElem != (PtnElem *)nullptr );
+     curElem = curElem->next.getAlias();
+   } while( curElem != nullptr );
 
    // end of the list
-   return (PtnElem*)nullptr;
+   return nullptr;
 
 }  // PatternMap::getDuplicateElem
 
@@ -2080,7 +2088,7 @@ DateTimeMatcher::set(const UnicodeString& pattern, FormatParser* fp, PtnSkeleton
             continue;
         }
         int32_t canonicalIndex = fp->getCanonicalIndex(value);
-        if (canonicalIndex < 0 ) {
+        if (canonicalIndex < 0) {
             continue;
         }
         const dtTypeElem *row = &dtTypes[canonicalIndex];
@@ -2090,7 +2098,8 @@ DateTimeMatcher::set(const UnicodeString& pattern, FormatParser* fp, PtnSkeleton
         int32_t repeatCount = row->minLen;
         skeletonResult.baseOriginal.populate(field, repeatChar, repeatCount);
         int16_t subField = row->type;
-        if ( row->type > 0) {
+        if (row->type > 0) {
+            U_ASSERT(value.length() < INT16_MAX);
             subField += static_cast<int16_t>(value.length());
         }
         skeletonResult.type[field] = subField;
@@ -2135,7 +2144,7 @@ DateTimeMatcher::getPattern() {
 }
 
 int32_t
-DateTimeMatcher::getDistance(const DateTimeMatcher& other, int32_t includeMask, DistanceInfo& distanceInfo) {
+DateTimeMatcher::getDistance(const DateTimeMatcher& other, int32_t includeMask, DistanceInfo& distanceInfo) const {
     int32_t result = 0;
     distanceInfo.clear();
     for (int32_t i=0; i<UDATPG_FIELD_COUNT; ++i ) {
@@ -2180,7 +2189,7 @@ DateTimeMatcher::equals(const DateTimeMatcher* other) const {
 }
 
 int32_t
-DateTimeMatcher::getFieldMask() {
+DateTimeMatcher::getFieldMask() const {
     int32_t result = 0;
 
     for (int32_t i=0; i<UDATPG_FIELD_COUNT; ++i) {
@@ -2326,7 +2335,7 @@ FormatParser::getQuoteLiteral(UnicodeString& quote, int32_t *itemIndex) {
 }
 
 UBool
-FormatParser::isPatternSeparator(const UnicodeString& field) {
+FormatParser::isPatternSeparator(const UnicodeString& field) const {
     for (int32_t i=0; i<field.length(); ++i ) {
         UChar c= field.charAt(i);
         if ( (c==SINGLE_QUOTE) || (c==BACKSLASH) || (c==SPACE) || (c==COLON) ||
@@ -2348,10 +2357,10 @@ DistanceInfo::setTo(const DistanceInfo& other) {
     extraFieldMask= other.extraFieldMask;
 }
 
-PatternMapIterator::PatternMapIterator(UErrorCode& status) : matcher(nullptr) {
-    bootIndex = 0;
-    nodePtr = nullptr;
-    patternMap = nullptr;
+PatternMapIterator::PatternMapIterator(UErrorCode& status) :
+    bootIndex(0), nodePtr(nullptr), matcher(nullptr), patternMap(nullptr)
+{
+    if (U_FAILURE(status)) { return; }
     matcher.adoptInsteadAndCheckErrorCode(new DateTimeMatcher(), status);
 }
 
@@ -2364,17 +2373,17 @@ PatternMapIterator::set(PatternMap& newPatternMap) {
 }
 
 PtnSkeleton*
-PatternMapIterator::getSkeleton() {
+PatternMapIterator::getSkeleton() const {
     if ( nodePtr == nullptr ) {
         return nullptr;
     }
     else {
-        return nodePtr->skeleton;
+        return nodePtr->skeleton.getAlias();
     }
 }
 
 UBool
-PatternMapIterator::hasNext() {
+PatternMapIterator::hasNext() const {
     int32_t headIndex = bootIndex;
     PtnElem *curPtr = nodePtr;
 
@@ -2401,7 +2410,6 @@ PatternMapIterator::hasNext() {
                 continue;
             }
         }
-
     }
     return FALSE;
 }
@@ -2411,7 +2419,7 @@ PatternMapIterator::next() {
     while ( bootIndex < MAX_PATTERN_ENTRIES ) {
         if ( nodePtr != nullptr ) {
             if ( nodePtr->next != nullptr ) {
-                nodePtr = nodePtr->next;
+                nodePtr = nodePtr->next.getAlias();
                 break;
             }
             else {
@@ -2570,20 +2578,11 @@ PtnSkeleton::~PtnSkeleton() {
 }
 
 PtnElem::PtnElem(const UnicodeString &basePat, const UnicodeString &pat) :
-basePattern(basePat),
-skeleton(nullptr),
-pattern(pat),
-next(nullptr)
+    basePattern(basePat), skeleton(nullptr), pattern(pat), next(nullptr)
 {
 }
 
 PtnElem::~PtnElem() {
-    if (next!=nullptr) {
-        delete next;
-    }
-    if (skeleton != nullptr) {
-        delete skeleton;
-    }
 }
 
 DTSkeletonEnumeration::DTSkeletonEnumeration(PatternMap& patternMap, dtStrEnum type, UErrorCode& status) : fSkeletons(nullptr) {
@@ -2609,7 +2608,7 @@ DTSkeletonEnumeration::DTSkeletonEnumeration(PatternMap& patternMap, dtStrEnum t
                     s=curElem->pattern;
                     break;
                 case DT_SKELETON:
-                    curSkeleton=curElem->skeleton;
+                    curSkeleton=curElem->skeleton.getAlias();
                     s=curSkeleton->getSkeleton();
                     break;
             }
@@ -2625,7 +2624,7 @@ DTSkeletonEnumeration::DTSkeletonEnumeration(PatternMap& patternMap, dtStrEnum t
                 }
                 newElem.orphan(); // fSkeletons vector now owns the UnicodeString.
             }
-            curElem = curElem->next;
+            curElem = curElem->next.getAlias();
         }
     }
     if ((bootIndex==MAX_PATTERN_ENTRIES) && (curElem!=nullptr) ) {
@@ -2718,7 +2717,7 @@ DTRedundantEnumeration::count(UErrorCode& /*status*/) const {
 }
 
 UBool
-DTRedundantEnumeration::isCanonicalItem(const UnicodeString& item) {
+DTRedundantEnumeration::isCanonicalItem(const UnicodeString& item) const {
     if ( item.length() != 1 ) {
         return FALSE;
     }
